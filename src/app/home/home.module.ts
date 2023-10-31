@@ -5,7 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './login/login.component';
 import { PoPageBlockedUserModule, PoPageLoginModule } from '@po-ui/ng-templates';
-import { PoModule } from '@po-ui/ng-components';
+import { PoImageModule, PoModule } from '@po-ui/ng-components';
 import { DialogHomeComponent } from './dialog-home/dialog-home.component';
 
 
@@ -21,6 +21,7 @@ import { DialogHomeComponent } from './dialog-home/dialog-home.component';
     PoPageLoginModule,
     PoModule,
     PoPageBlockedUserModule,
+    PoImageModule,
   ]
 })
 export class HomeModule { }
