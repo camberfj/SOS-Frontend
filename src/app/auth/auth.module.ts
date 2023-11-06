@@ -6,10 +6,11 @@ import { PoPageBlockedUserModule, PoPageLoginModule } from '@po-ui/ng-templates'
 import { PoImageModule, PoModule } from '@po-ui/ng-components';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [LoginComponent,],
+  declarations: [LoginComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -17,12 +18,13 @@ import { AuthInterceptor } from './auth.interceptor';
     PoModule,
     PoPageBlockedUserModule,
     PoImageModule,
+    FormsModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true,
+      multi: true
     }
   ],
 })

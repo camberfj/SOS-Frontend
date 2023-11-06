@@ -18,6 +18,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     if(this.tokenService.existeToken()){
       const token = this.tokenService.obtenerToken();
+      console.log('Token:', token);
       const headers = new HttpHeaders().append('x-access-token', token);
       request = request.clone({ headers });
     }

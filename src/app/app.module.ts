@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PoModule } from '@po-ui/ng-components';
+
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { PoTemplatesModule } from '@po-ui/ng-templates';
+import { PoPageBlockedUserModule, PoPageLoginModule } from '@po-ui/ng-templates';
+import { PoImageModule, PoModule } from '@po-ui/ng-components';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,11 @@ import { PoTemplatesModule } from '@po-ui/ng-templates';
     PoModule,
     HttpClientModule,
     RouterModule.forRoot([]),
-    PoTemplatesModule
+    PoTemplatesModule,
+    PoPageLoginModule,
+    PoModule,
+    PoPageBlockedUserModule,
+    PoImageModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
