@@ -1,13 +1,12 @@
 <div class="container">
   <div class="login-container">
     <po-page-login
-    p-authentication-url="http://localhost:3000/user/login"
-    p-logo="assets/img/totvs-hospitalidade.svg"
+    p-logo="assets/img/logo-totvs-h-black.png"
     p-product-name="Agenda Clientes"
     p-recovery="string | Function | PoPageLoginRecovery"
-    p-secondary-logo="assets/img/totvs-logo.svg"
+    p-secondary-logo="assets/img/unnamed.gif"
     [p-hide-remember-user]="true"
-    (p-login-submit)="login()"
+    (p-login-submit)="login($event)"
     >
 </po-page-login>
   </div>
