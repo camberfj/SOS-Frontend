@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { AuthService } from './../../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { PoPageLogin } from '@po-ui/ng-templates';
 
 @Component({
   selector: 'app-login',
@@ -15,9 +16,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  login(){
-    console.log('enviar datos');
-    console.log(this.userName, this.password);
+  login(form: PoPageLogin){
+    this.userName = form.login;
+    this.password = form.password;
+    console.log(form);
     this.authService.autorizar(this.userName, this.password).subscribe({
       complete: () => this.router.navigate(['home']),
       error: (err) => alert('Verifica tus datos')
