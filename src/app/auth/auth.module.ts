@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent,],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
     PoModule,
     PoPageBlockedUserModule,
     PoImageModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     {
