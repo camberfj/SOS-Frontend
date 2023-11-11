@@ -5,12 +5,16 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 
 import { PoPageBlockedUserModule, PoPageLoginModule } from '@po-ui/ng-templates';
-import { PoImageModule, PoModule } from '@po-ui/ng-components';
+import { PoImageModule, PoMenuModule, PoModule, PoToolbarModule } from '@po-ui/ng-components';
+import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './headers/header.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
+    HeaderComponent
+
 
 
   ],
@@ -21,6 +25,9 @@ import { PoImageModule, PoModule } from '@po-ui/ng-components';
     PoModule,
     PoPageBlockedUserModule,
     PoImageModule,
+    PoToolbarModule,
+    PoMenuModule,
+    RouterModule
   ]
 })
 export class HomeModule { }

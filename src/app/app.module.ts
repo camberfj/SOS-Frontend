@@ -22,7 +22,6 @@ import { PoImageModule, PoModule } from '@po-ui/ng-components';
     RouterModule.forRoot([]),
     PoTemplatesModule,
     PoPageLoginModule,
-    PoModule,
     PoPageBlockedUserModule,
     PoImageModule,
   ],
