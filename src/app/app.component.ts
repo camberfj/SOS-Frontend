@@ -8,6 +8,7 @@ import { PoMenuItem } from '@po-ui/ng-components';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  tittle: 'Agenda Clientes'
 
   readonly menus: Array<PoMenuItem> = [
     { label: 'Home', action: this.onClick.bind(this) }
