@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PoMenuItem } from '@po-ui/ng-components' ;
 import { HomeService } from './service-home/home.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +29,7 @@ export class HomeComponent {
           label: 'Conexiones',
           action: this.printMenuAction.bind(this),
           subItems: [
-            {label: 'Nueva conexión', action: this.printMenuAction.bind(this)},
+            {label: 'Nueva conexión', action: () => this.newQuery()},
             {label: 'Agregar conexión', action: this.printMenuAction.bind(this)}
           ]
         },
@@ -64,9 +65,14 @@ export class HomeComponent {
       shortLabel: 'Timekeeping',
     },
   ];
-  constructor(public homeService: HomeService) {}
+  constructor(public homeService: HomeService, private router: Router) {}
 
   printMenuAction(menu: PoMenuItem) {
     this.menuItemSelected = menu.label;
   }
+
+  newQuery() {
+    this.router.navigate(['clientes'])
+  }
+
 }
