@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PoMenuItem } from '@po-ui/ng-components' ;
 import { HomeService } from './service-home/home.service';
 import { Router } from '@angular/router';
+import { UserService } from '../auth/user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,9 @@ import { Router } from '@angular/router';
     `
   ]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  user$ = this.userService.returnUsuario();
+
   menuItemSelected: string;
 
   menus: Array<PoMenuItem> = [
@@ -65,7 +68,11 @@ export class HomeComponent {
       shortLabel: 'Timekeeping',
     },
   ];
-  constructor(public homeService: HomeService, private router: Router) {}
+  constructor(private userService: UserService, private homeService: HomeService,  private router: Router) {}
+
+  ngOnInit(): void {
+
+  }
 
   printMenuAction(menu: PoMenuItem) {
     this.menuItemSelected = menu.label;
