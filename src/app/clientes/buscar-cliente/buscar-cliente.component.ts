@@ -26,9 +26,9 @@ export class BuscarClienteComponent {
   hideCloseDisclaimers: Array<string> = ['address_city'];
 
   readonly actions: PoPageDynamicTableActions = {
-    new: '/documentation/po-page-dynamic-edit',
+    new: 'action: () => this.nuevoHotel()',
     remove: true,
-    removeAll: true
+    removeAll: true,
   };
 
   readonly breadcrumb: PoBreadcrumb = {
@@ -165,5 +165,9 @@ export class BuscarClienteComponent {
 
   homeLogin() {
     this.router.navigate(['home'])
+  }
+
+  nuevoHotel() {
+    this.router.navigate(['nuevo'])
   }
 }

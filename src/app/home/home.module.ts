@@ -15,9 +15,6 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     HomeComponent,
     HeaderComponent
-
-
-
   ],
   imports: [
     CommonModule,

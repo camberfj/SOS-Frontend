@@ -30,14 +30,10 @@ export class HomeComponent implements OnInit {
       subItems: [
         {
           label: 'Conexiones',
-          action: this.printMenuAction.bind(this),
-          subItems: [
-            {label: 'Nueva conexión', action: () => this.newQuery()},
-            {label: 'Agregar conexión', action: this.printMenuAction.bind(this)}
-          ]
+          action: () => this.newQuery(),
         },
         {
-          label: 'Épicas',
+          label: 'Observaciones',
           subItems: [
             {label: 'Nueva épica',action: this.printMenuAction.bind(this),},
             {label: 'Historial épica', action: this.printMenuAction.bind(this)},

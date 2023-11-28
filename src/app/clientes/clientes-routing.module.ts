@@ -7,11 +7,13 @@ const routes: Routes = [
   {
     path: '',
     component: BuscarClienteComponent,
+    children: [
+      {
+      path: 'nuevo',
+      component: NuevoClienteComponent,
+      }
+    ]
   },
-  {
-    path: 'nuevo',
-    component: NuevoClienteComponent,
-  }
 ];
 
 @NgModule({
