@@ -6,14 +6,17 @@ import { NuevoClienteComponent } from './nuevo/nuevo-cliente.component';
 const routes: Routes = [
   {
     path: '',
-    component: BuscarClienteComponent,
-    children: [
-      {
-      path: 'nuevo',
-      component: NuevoClienteComponent,
-      }
-    ]
+    pathMatch: 'full',
+    redirectTo: 'clientes'
   },
+  {
+    path: '',
+    component: BuscarClienteComponent,
+  },
+  {
+    path: 'nuevo-cliente',
+    component: NuevoClienteComponent,
+  }
 ];
 
 @NgModule({

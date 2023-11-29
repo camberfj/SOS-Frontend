@@ -26,7 +26,7 @@ export class BuscarClienteComponent {
   hideCloseDisclaimers: Array<string> = ['address_city'];
 
   readonly actions: PoPageDynamicTableActions = {
-    new: 'action: () => this.nuevoHotel()',
+    new: 'nuevo-cliente',
     remove: true,
     removeAll: true,
   };
@@ -167,7 +167,9 @@ export class BuscarClienteComponent {
     this.router.navigate(['home'])
   }
 
-  nuevoHotel() {
-    this.router.navigate(['nuevo'])
+  newCliente() {
+    this.router.navigate(['/nuevo-cliente']);
   }
+
+
 }
