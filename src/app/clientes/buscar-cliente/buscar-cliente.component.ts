@@ -35,15 +35,7 @@ export class BuscarClienteComponent {
     items: [{ label: 'Home', action: () => this.homeLogin()}, { label: 'Hotel' }]
   };
 
-  readonly cityOptions: Array<object> = [
-    { value: 'São Paulo', label: 'São Paulo' },
-    { value: 'Uberaba', label: 'Uberaba' },
-    { value: 'São benedito', label: 'São benedito' },
-    { value: 'Belford Roxo', label: 'Belford Roxo' },
-    { value: 'Vila Velha', label: 'Vila Velha' },
-    { value: 'Mogi das Cruzes', label: 'Mogi das Cruzes' },
-    { value: 'Minas Gerais', label: 'Minas Gerais' }
-  ];
+
 
   readonly categoryOptions: Array<object> = [
     { value: 'Simples', label: 'Simples' },
@@ -72,7 +64,6 @@ export class BuscarClienteComponent {
       property: 'address_city',
       label: 'City',
       filter: true,
-      options: this.cityOptions,
       gridColumns: 12,
       initValue: 'Mogi das Cruzes'
     }
@@ -165,10 +156,6 @@ export class BuscarClienteComponent {
 
   homeLogin() {
     this.router.navigate(['home'])
-  }
-
-  newCliente() {
-    this.router.navigate(['/nuevo-cliente']);
   }
 
 
