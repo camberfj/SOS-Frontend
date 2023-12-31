@@ -6,12 +6,14 @@ import { BuscarClienteComponent } from './buscar-cliente/buscar-cliente.componen
 import { PoPageDynamicTableModule } from '@po-ui/ng-templates';
 import { PoDynamicModule, PoModalModule } from '@po-ui/ng-components';
 import { RouterModule } from '@angular/router';
+import { NuevoClienteComponent } from './nuevo-cliente/nuevo-cliente.component';
 
 
 
 @NgModule({
   declarations: [
     BuscarClienteComponent,
+    NuevoClienteComponent,
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,7 @@ import { RouterModule } from '@angular/router';
     PoModalModule,
     PoDynamicModule,
     RouterModule,
+    PoModalModule
   ]
 })
 export class ClientesModule { }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BuscarClienteComponent } from './buscar-cliente/buscar-cliente.component';
+import { NuevoClienteComponent } from './nuevo-cliente/nuevo-cliente.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,10 @@ const routes: Routes = [
     path: '',
     component: BuscarClienteComponent,
   },
-
+  {
+    path: '',
+    component: NuevoClienteComponent,
+  }
 ];
 
 @NgModule({

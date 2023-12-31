@@ -19,10 +19,6 @@ const routes: Routes = [
     path: 'clientes',
     loadChildren: () => import('./clientes/clientes.module').then((module) => module.ClientesModule)
   },
-  {
-    path: 'nuevo-cliente',
-    loadChildren: () => import('./componentes/nuevo-cliente/nuevo-cliente.module').then((module) => module.NuevoClienteModule)
-  }
 ];
 
 @NgModule({
