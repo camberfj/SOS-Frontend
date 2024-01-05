@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { PoTemplatesModule } from '@po-ui/ng-templates';
 import { PoPageBlockedUserModule, PoPageLoginModule } from '@po-ui/ng-templates';
 import { PoImageModule, PoModule } from '@po-ui/ng-components';
+import { ClientesModule } from './clientes/clientes.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { PoImageModule, PoModule } from '@po-ui/ng-components';
     PoPageLoginModule,
     PoPageBlockedUserModule,
     PoImageModule,
+    ClientesModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

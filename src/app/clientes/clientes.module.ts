@@ -23,6 +23,9 @@ import { NuevoClienteComponent } from './nuevo-cliente/nuevo-cliente.component';
     PoDynamicModule,
     RouterModule,
     PoModalModule
+  ],
+  exports: [
+    NuevoClienteComponent
   ]
 })
 export class ClientesModule { }

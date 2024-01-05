@@ -1,5 +1,5 @@
 <po-page-dynamic-table
-  [p-auto-router]="true"
+  [p-auto-router]="false"
   [p-concat-filters]="true"
   [p-keep-filters]="true"
   p-title="Hoteles"
@@ -16,6 +16,10 @@
 >
 </po-page-dynamic-table>
 
+
 <po-modal #hotelDetailModal p-title="Hotel Detail">
   <po-dynamic-view [p-fields]="detailFields" [p-value]="detailedHotel"></po-dynamic-view>
 </po-modal>
+
+<po-modal #modalNuevoCliente p-title="Nuevo Hotel"> <app-nuevo-cliente></app-nuevo-cliente> </po-modal>
+

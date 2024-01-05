@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { PoBreadcrumb, PoDynamicViewField, PoModalComponent, PoModalModule } from '@po-ui/ng-components';
+import { PoBreadcrumb, PoDynamicViewField, PoModalComponent,} from '@po-ui/ng-components';
 import {
   PoPageDynamicTableActions,
   PoPageDynamicTableCustomAction,
@@ -7,7 +7,7 @@ import {
 } from '@po-ui/ng-templates';
 import { ClientesService } from '../services/clientes.service';
 import { Router } from '@angular/router';
-import { NuevoClienteComponent } from '../nuevo-cliente/nuevo-cliente.component';
+
 
 @Component({
   selector: 'app-buscar-cliente',
@@ -15,7 +15,7 @@ import { NuevoClienteComponent } from '../nuevo-cliente/nuevo-cliente.component'
   styleUrls: ['./buscar-cliente.component.scss']
 })
 export class BuscarClienteComponent {
-  @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
+  @ViewChild('modalNuevoCliente', { static: true }) modalNuevoCliente: PoModalComponent;
 
   @ViewChild('hotelDetailModal') hotelDetailModal!: PoModalComponent;
 
@@ -28,7 +28,7 @@ export class BuscarClienteComponent {
   hideCloseDisclaimers: Array<string> = ['address_city'];
 
   readonly actions: PoPageDynamicTableActions = {
-    new: () => this.openModal(),
+    new: () => this.modal(),
     remove: true,
     removeAll: true,
   };
@@ -160,9 +160,8 @@ export class BuscarClienteComponent {
     this.router.navigate(['home'])
   }
 
-  openModal() {
-    this.poModal.open();
-
+  modal() {
+    this.modalNuevoCliente.open();
   }
 
 }

@@ -13,10 +13,6 @@ const routes: Routes = [
     path: '',
     component: BuscarClienteComponent,
   },
-  {
-    path: '',
-    component: NuevoClienteComponent,
-  }
 ];
 
 @NgModule({
