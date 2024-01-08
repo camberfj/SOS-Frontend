@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { PoTemplatesModule } from '@po-ui/ng-templates';
 import { PoPageBlockedUserModule, PoPageLoginModule } from '@po-ui/ng-templates';
-import { PoImageModule, PoModule } from '@po-ui/ng-components';
+import { PoImageModule, PoModule, PoPageModule } from '@po-ui/ng-components';
 import { ClientesModule } from './clientes/clientes.module';
 import { HomeModule } from './home/home.module';
 
@@ -27,7 +27,8 @@ import { HomeModule } from './home/home.module';
     PoPageBlockedUserModule,
     PoImageModule,
     ClientesModule,
-    HomeModule
+    HomeModule,
+    PoPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

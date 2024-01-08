@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nuevo-cliente.component.scss']
 })
 export class NuevoClienteComponent implements OnInit {
-  isOpen: string = '';
+  FormNuevoHotel!: FormGroup
+  /*reactiveForm: UntypedFormGroup*/
 
-  constructor() {}
+  constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {
+      this.FormNuevoHotel = this.formBuilder.group({
+        name: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(30)])],
+      })
+  }
+
+  registrar() {}
 }

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { PoBreadcrumb, PoDynamicViewField, PoModalComponent,} from '@po-ui/ng-components';
+import { PoBreadcrumb, PoDynamicViewField, PoModalAction, PoModalComponent,} from '@po-ui/ng-components';
 import {
   PoPageDynamicTableActions,
   PoPageDynamicTableCustomAction,
@@ -19,6 +19,7 @@ export class BuscarClienteComponent {
 
   @ViewChild('hotelDetailModal') hotelDetailModal!: PoModalComponent;
 
+
   readonly serviceApi = 'https://po-sample-api.onrender.com/v1/hotels';
 
   actionsRight = true;
@@ -26,6 +27,21 @@ export class BuscarClienteComponent {
   quickSearchWidth: number = 3;
   hideRemoveAllDisclaimer = false;
   hideCloseDisclaimers: Array<string> = ['address_city'];
+
+  close: PoModalAction = {
+    action: () => {
+      this.closeModal();
+    },
+    label: 'Cancelar',
+    danger: true
+  };
+
+  confirm: PoModalAction = {
+    action: () => {
+      this.proccessOrder();
+    },
+    label: 'Registrar'
+  };
 
   readonly actions: PoPageDynamicTableActions = {
     new: () => this.modal(),
@@ -122,6 +138,8 @@ export class BuscarClienteComponent {
 
   constructor(private clientesService: ClientesService, private router: Router) {}
 
+  private proccessOrder() {}
+
   private onClickHotelDetail(hotel: any) {
     this.detailedHotel = hotel;
 
@@ -163,5 +181,14 @@ export class BuscarClienteComponent {
   modal() {
     this.modalNuevoCliente.open();
   }
+
+  closeModal() {
+    this.modalNuevoCliente.close();
+  }
+
+  confirmFruits() {
+    this.proccessOrder();
+  }
+
 
 }
