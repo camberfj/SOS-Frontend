@@ -8,6 +8,7 @@ import { PoDynamicModule, PoModalModule, PoPageModule } from '@po-ui/ng-componen
 import { RouterModule } from '@angular/router';
 import { NuevoClienteComponent } from './nuevo-cliente/nuevo-cliente.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PoFieldModule } from '@po-ui/ng-components';
 
 
 
@@ -26,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PoModalModule,
     FormsModule,
     PoPageModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PoFieldModule
   ],
   exports: [
     NuevoClienteComponent
