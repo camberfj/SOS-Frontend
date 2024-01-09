@@ -1,8 +1,8 @@
-<hr/>
 <form [formGroup]="FormNuevoHotel">
-  <div class="mb-2">
-    <po-input class="form-control" formControlName="name" p-clean p-icon="po-icon-user" p-label="Hotel"></po-input>
+  <div class="po-row">
+    <po-dynamic-form class="po-md-12" [p-fields]="[{ property: 'Nombre', required: true, showRequired: true }]"></po-dynamic-form>
   </div>
 </form>
-<hr/>
+
+<!-- <po-input class="form-control" formControlName="name" p-clean p-icon="po-icon-user" p-label="Hotel"></po-input> -->
 
