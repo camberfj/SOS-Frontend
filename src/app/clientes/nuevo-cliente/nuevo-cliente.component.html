@@ -1,6 +1,15 @@
 <form [formGroup]="FormNuevoHotel">
   <div class="po-row">
-    <po-dynamic-form class="po-md-12" [p-fields]="[{ property: 'Nombre', required: true, showRequired: true }]"></po-dynamic-form>
+    <po-dynamic-form class="po-md-12" formControlName="name" [p-fields]="[{ property: 'Nombre', required: true, showRequired: true }]"></po-dynamic-form>
+  </div>
+  <div class="po-row">
+    <po-dynamic-form class="po-md-12" [p-fields]="[{ property: 'Conexión', required: true, showRequired: true }]"></po-dynamic-form>
+  </div>
+  <div class="po-row">
+    <po-dynamic-form class="po-md-12" [p-fields]="[{ property: 'Teléfono', required: true, showRequired: true }]"></po-dynamic-form>
+  </div>
+  <div class="po-row">
+    <po-dynamic-form class="po-md-12" formControlName="email" [p-fields]="[{ property: 'Email', required: true, showRequired: true }]"></po-dynamic-form>
   </div>
 </form>
 
