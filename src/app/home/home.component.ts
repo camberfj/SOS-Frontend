@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { PoMenuItem } from '@po-ui/ng-components' ;
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { PoMenuItem, PoModalAction, PoModalComponent } from '@po-ui/ng-components' ;
 import { HomeService } from './service-home/home.service';
 import { Router } from '@angular/router';
 import { UserService } from '../auth/user/user.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NuevoUsuario } from './nuevo-usuario';
 
 @Component({
   selector: 'app-home',
@@ -17,12 +19,38 @@ import { UserService } from '../auth/user/user.service';
   ]
 })
 export class HomeComponent implements OnInit {
+  nuevoUsuarioForm!: FormGroup;
   user$ = this.userService.returnUsuario();
+  @ViewChild('modalNuevoUsuario', { static: true }) modalNuevoUsuario: PoModalComponent;
 
   menuItemSelected: string;
 
+  close: PoModalAction = {
+    action: () => {
+      this.closeModal();
+    },
+    label: 'Cancelar',
+    danger: true
+  };
+
+  confirm: PoModalAction = {
+    action: () => {
+      this.registrar();
+    },
+    label: 'Registrar'
+  };
+
   menus: Array<PoMenuItem> = [
-    {label: 'Nuevo usuario', action: this.printMenuAction.bind(this), icon: 'po-icon-user', shortLabel: 'Register'},
+    {label: 'Usuarios',
+    icon: 'po-icon-user',
+    shortLabel: 'Register',
+    subItems: [
+      {
+        label: 'Nuevo usuario',
+        action: () => this.modal(),
+      }
+    ]
+  },
     {
       label: 'Hoteles',
       icon: 'po-icon-company',
@@ -64,10 +92,17 @@ export class HomeComponent implements OnInit {
       shortLabel: 'Timekeeping',
     },
   ];
-  constructor(private userService: UserService, private homeService: HomeService,  private router: Router) {}
+  constructor(private userService: UserService, private homeService: HomeService,  private router: Router, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-
+    this.nuevoUsuarioForm = this.formBuilder.group({
+      fullName: ['', [ Validators.required, Validators.minLength(4)]],
+      userName: [''],
+      email: ['', [ Validators.required, Validators.email]],
+      password: [''],
+    },{
+      validators: [],
+    })
   }
 
   printMenuAction(menu: PoMenuItem) {
@@ -76,6 +111,26 @@ export class HomeComponent implements OnInit {
 
   newQuery() {
     this.router.navigate(['clientes'])
+  }
+
+  modal() {
+    this.modalNuevoUsuario.open();
+  }
+
+  closeModal() {
+    this.modalNuevoUsuario.close();
+  }
+
+  registrar() {
+    if (this.nuevoUsuarioForm.valid) {
+      const nuevousuario = this.nuevoUsuarioForm.getRawValue() as NuevoUsuario;
+      this.homeService.registrarUsuario(nuevousuario).subscribe({
+        complete: () => this.router.navigate(['']),
+        error: () => alert('No fue posible hacer el registro'),
+      });
+    } else {
+      alert('verifica el formulario')
+    }
   }
 
 }

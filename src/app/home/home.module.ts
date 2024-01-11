@@ -5,10 +5,10 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 
 import { PoPageBlockedUserModule, PoPageLoginModule } from '@po-ui/ng-templates';
-import { PoImageModule, PoMenuModule, PoModule, PoToolbarModule } from '@po-ui/ng-components';
+import { PoImageModule, PoMenuModule, PoModalModule, PoModule, PoToolbarModule } from '@po-ui/ng-components';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './headers/header.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     PoMenuModule,
     RouterModule,
     FormsModule,
-    NgFor
+    ReactiveFormsModule,
+    NgFor,
+    PoModalModule
   ]
 })
 export class HomeModule { }

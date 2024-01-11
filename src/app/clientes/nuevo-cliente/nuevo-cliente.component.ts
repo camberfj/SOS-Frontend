@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -16,6 +16,7 @@ export class NuevoClienteComponent implements OnInit {
   ngOnInit(): void {
       this.FormNuevoHotel = this.formBuilder.group({
         name: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(30)])],
+        email: ['', Validators.required, Validators.email],
       })
   }
 

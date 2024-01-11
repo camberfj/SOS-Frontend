@@ -1,8 +1,25 @@
 <form [formGroup]="FormNuevoHotel">
   <div class="po-row">
-    <po-input name="name" formControlName="name" p-clean p-icon="po-icon-user" p-label="Hotel"></po-input>
+    <po-input class="po-md-8" formControlName="name" p-icon="po-icon-warehouse" p-label="Nombre"></po-input>
   </div>
+  <div class="po-row">
+    <po-input class="po-md-8" formControlName="connection" p-icon="po-icon-company" p-label="Razón Social"></po-input>
+  </div>
+  <div class="po-row">
+    <po-input class="po-md-8" formControlName="email" p-icon="po-icon-mail" p-label="Correo"></po-input>
+  </div>
+  <div class="po-row">
+    <po-input class="po-md-8" formControlName="phone" p-icon="po-icon-telephone" p-label="Contacto"></po-input>
+  </div>
+  <po-select
+  class="po-md-8"
+  name="select"
+  p-label="Estatus"
+  [p-options]="[
+    { label: 'Activo', value: '1' },
+    { label: 'Suspendido', value: '2' },
+    { label: 'Bloqueado', value: '3' }
+  ]"
+>
+</po-select>
 </form>
-
-
-

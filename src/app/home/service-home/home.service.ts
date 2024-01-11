@@ -1,7 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PoMenuFilter, PoMenuItemFiltered, PoToolbarAction } from '@po-ui/ng-components';
+import { PoMenuFilter, PoMenuItemFiltered } from '@po-ui/ng-components';
 import { Observable, map } from 'rxjs';
+import { NuevoUsuario } from '../nuevo-usuario';
+import { environment } from 'src/environments/environment';
+
+const API = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +13,16 @@ import { Observable, map } from 'rxjs';
 export class HomeService implements PoMenuFilter {
   private apiUrl: string = 'https://po-sample-api.fly.dev/v1/menus';
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
+
+  url = `${API}/user`
 
   getFilteredData(search: string): Observable<Array<PoMenuItemFiltered>> {
     const params = { search };
+    return this.httpClient.get(this.apiUrl, { params }).pipe(map((response: any) => response.items));
+  }
 
-    return this.http.get(this.apiUrl, { params }).pipe(map((response: any) => response.items));
+  registrarUsuario(nuevoUsuario: NuevoUsuario) {
+    return this.httpClient.post(`${this.url}/signup`, nuevoUsuario)
   }
 }

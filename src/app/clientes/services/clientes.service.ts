@@ -1,9 +1,9 @@
+import { Cliente } from './../cliente';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { TokenService } from 'src/app/auth/services/token.service';
 import { environment } from 'src/environments/environment';
-import { Clientes } from '../cliente';
 
 const API = environment.apiUrl;
 
@@ -13,10 +13,12 @@ const API = environment.apiUrl;
 export class ClientesService {
 
 
-  constructor(private http: HttpClient, private tokenService: TokenService) {}
+  constructor(private httpClient: HttpClient, private tokenService: TokenService) {}
 
-  listaDeUsuario(usuario: string): Observable<Clientes> {
-    return this.http.get<Clientes>('http://localhost:3000')
+  url = `http://localhost:3000`;
+
+  registrarCliente(cliente: Cliente) {
+    return this.httpClient.post(`${this.url}/signup`, cliente)
   }
 
 

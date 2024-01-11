@@ -4,11 +4,10 @@ import { CommonModule } from '@angular/common';
 import { ClientesRoutingModule } from './clientes-routing.module';
 import { BuscarClienteComponent } from './buscar-cliente/buscar-cliente.component';
 import { PoPageDynamicTableModule } from '@po-ui/ng-templates';
-import { PoDynamicModule, PoModalModule, PoPageModule } from '@po-ui/ng-components';
+import { PoDynamicModule, PoModalModule, PoPageModule, PoFieldModule, PoButtonModule } from '@po-ui/ng-components';
 import { RouterModule } from '@angular/router';
 import { NuevoClienteComponent } from './nuevo-cliente/nuevo-cliente.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PoFieldModule } from '@po-ui/ng-components';
 
 
 
@@ -28,7 +27,8 @@ import { PoFieldModule } from '@po-ui/ng-components';
     FormsModule,
     PoPageModule,
     ReactiveFormsModule,
-    PoFieldModule
+    PoFieldModule,
+    PoButtonModule
   ],
   exports: [
     NuevoClienteComponent

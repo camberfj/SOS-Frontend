@@ -36,7 +36,7 @@ export class BuscarClienteComponent {
     danger: true
   };
 
-  confirm: PoModalAction = {
+  registrar: PoModalAction = {
     action: () => {
       this.proccessOrder();
     },
