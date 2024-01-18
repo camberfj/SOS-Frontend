@@ -8,6 +8,9 @@
   </po-menu>
   <po-toolbar p-title ="TOTVS HOTELERÍA LATAM" class="home-toolbar"></po-toolbar>
 </div>
+
+<!--Formulario para el nuevo usuario-->
+
 <form [formGroup]="nuevoUsuarioForm">
 <po-modal #modalNuevoUsuario p-title="Registrar Nuevo Usuario" [p-primary-action]="confirm" [p-secondary-action]="close">
 <div class="po-row">
@@ -25,7 +28,7 @@
 <po-select
 class="po-md-8"
 name="select"
-p-label="Estatus"
+p-label="Status"
 [p-options]="[
   { label: 'Activo', value: '1' },
   { label: 'Inactivo', value: '2' },
@@ -34,4 +37,6 @@ p-label="Estatus"
 </po-select>
 </po-modal>
 </form>
+
+<!--Aquí termina el formulario para el nuevo usuario-->
 

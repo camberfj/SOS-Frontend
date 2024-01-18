@@ -28,21 +28,6 @@ export class BuscarClienteComponent {
   hideRemoveAllDisclaimer = false;
   hideCloseDisclaimers: Array<string> = ['address_city'];
 
-  close: PoModalAction = {
-    action: () => {
-      this.closeModal();
-    },
-    label: 'Cancelar',
-    danger: true
-  };
-
-  registrar: PoModalAction = {
-    action: () => {
-      this.proccessOrder();
-    },
-    label: 'Registrar'
-  };
-
   readonly actions: PoPageDynamicTableActions = {
     new: () => this.modal(),
     remove: true,
@@ -138,8 +123,6 @@ export class BuscarClienteComponent {
 
   constructor(private clientesService: ClientesService, private router: Router) {}
 
-  private proccessOrder() {}
-
   private onClickHotelDetail(hotel: any) {
     this.detailedHotel = hotel;
 
@@ -184,10 +167,6 @@ export class BuscarClienteComponent {
 
   closeModal() {
     this.modalNuevoCliente.close();
-  }
-
-  confirmFruits() {
-    this.proccessOrder();
   }
 
 

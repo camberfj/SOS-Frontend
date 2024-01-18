@@ -21,7 +21,8 @@
   <po-dynamic-view [p-fields]="detailFields" [p-value]="detailedHotel"></po-dynamic-view>
 </po-modal>
 
-<po-modal #modalNuevoCliente p-title="Registrar Nuevo Hotel" [p-primary-action]="registrar"
-[p-secondary-action]="close"
-><app-nuevo-cliente></app-nuevo-cliente></po-modal>
+<po-modal #modalNuevoCliente p-title="Registrar Nuevo Hotel">
+<po-modal-footer [p-disabled-align]="false"></po-modal-footer>
+<app-nuevo-cliente></app-nuevo-cliente>
+</po-modal>
 

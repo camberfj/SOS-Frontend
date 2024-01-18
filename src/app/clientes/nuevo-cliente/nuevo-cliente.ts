@@ -1,4 +1,6 @@
 export interface NuevoCliente {
-  name: string;
+  userName: string;
   email: string;
+  fullName: string;
+  password: string;
 }

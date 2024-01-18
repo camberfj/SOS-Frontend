@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NuevoCliente } from './nuevo-cliente';
+import { ClientesService } from '../services/clientes.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,17 +11,35 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./nuevo-cliente.component.scss']
 })
 export class NuevoClienteComponent implements OnInit {
-  FormNuevoHotel!: FormGroup
+  nuevoHotelForm!: FormGroup;
   /*reactiveForm: UntypedFormGroup*/
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private clientesService: ClientesService, private router: Router) {}
 
   ngOnInit(): void {
-      this.FormNuevoHotel = this.formBuilder.group({
-        name: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(30)])],
-        email: ['', Validators.required, Validators.email],
-      })
+    this.nuevoHotelForm = this.formBuilder.group({
+      fullName: ['', [ Validators.required, Validators.minLength(4)]],
+      userName: [''],
+      email: ['', [ Validators.required, Validators.email]],
+      password: [''],
+    },{
+      validators: [],
+    })
   }
 
-  registrar() {}
+  agregarCliente() {
+    if (this.nuevoHotelForm.valid) {
+      const nuevoCliente = this.nuevoHotelForm.getRawValue() as NuevoCliente;
+      this.clientesService.registrarCliente(nuevoCliente).subscribe({
+        complete: () => this.close(),
+        error: () => alert('No fue posible hacer el registro'),
+      });
+    }else {
+      alert ('Verifica el formulario')
+    }
+  }
+
+  close() {
+    this.router.navigate(['home'])
+  }
 }

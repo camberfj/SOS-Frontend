@@ -30,8 +30,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PoFieldModule,
     PoButtonModule
   ],
-  exports: [
-    NuevoClienteComponent
-  ]
+  exports: []
 })
 export class ClientesModule { }
