@@ -41,39 +41,20 @@ export class HomeComponent implements OnInit {
   };
 
   menus: Array<PoMenuItem> = [
-    {label: 'Usuarios',
-    icon: 'po-icon-user',
-    shortLabel: 'Register',
-    subItems: [
-      {
-        label: 'Nuevo usuario',
-        action: () => this.modal(),
-      }
-    ]
-  },
     {
       label: 'Hoteles',
       icon: 'po-icon-company',
       shortLabel: 'Hoteles',
-      subItems: [
+      action: () => this.newQuery(),
+    },
+    {label: 'Usuarios',
+    icon: 'po-icon-user',
+    shortLabel: 'Register',
+    subItems: [
         {
-          label: 'Conexiones',
-          action: () => this.newQuery(),
-        },
-        {
-          label: 'Observaciones',
-          subItems: [
-            {label: 'Nueva épica',action: this.printMenuAction.bind(this),},
-            {label: 'Historial épica', action: this.printMenuAction.bind(this)},
-            {label: 'Agregar épicas', action: this.printMenuAction.bind(this)}
-          ]
-        },
-        { label:'Licencias',
-          action: this.printMenuAction.bind(this),
-          subItems: [
-            {label: ''}
-          ]
-        },
+          label: 'Nuevo usuario',
+          action: () => this.modal(),
+        }
       ]
     },
     {
@@ -81,8 +62,8 @@ export class HomeComponent implements OnInit {
       icon: 'po-icon-news',
       shortLabel: 'Links',
       subItems: [
-        {label: 'Conexiones', action: this.printMenuAction.bind(this), link: 'http://trabalho.gov.br/'},
-        {label: 'Agregar nueva conexión', action: this.printMenuAction.bind(this), link: 'http://www.sindpd.com.br/'}
+        {label: 'Épicas', action: this.printMenuAction.bind(this), link: 'http://trabalho.gov.br/'},
+        {label: 'Listado de conexión', action: this.printMenuAction.bind(this), link: 'http://www.sindpd.com.br/'}
       ]
     },
     {
