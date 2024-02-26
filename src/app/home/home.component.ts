@@ -42,29 +42,28 @@ export class HomeComponent implements OnInit {
 
   menus: Array<PoMenuItem> = [
     {
+      label: 'Nuevo usuario',
+      icon: 'po-icon-user-add',
+      shortLabel: 'Register',
+      action: () => this.modal(),
+    },
+    {
       label: 'Hoteles',
       icon: 'po-icon-company',
       shortLabel: 'Hoteles',
       action: () => this.newQuery(),
     },
-    {label: 'Usuarios',
-    icon: 'po-icon-user',
-    shortLabel: 'Register',
-    subItems: [
-        {
-          label: 'Nuevo usuario',
-          action: () => this.modal(),
-        }
-      ]
+    {
+      label: 'Conexiones',
+      icon: 'po-icon-world',
+      shortLabel: 'Hoteles',
+      action: () => this.editConexion(),
     },
     {
-      label: 'Reportes',
+      label: 'Épicas',
       icon: 'po-icon-news',
       shortLabel: 'Links',
-      subItems: [
-        {label: 'Épicas', action: this.printMenuAction.bind(this), link: 'http://trabalho.gov.br/'},
-        {label: 'Listado de conexión', action: this.printMenuAction.bind(this), link: 'http://www.sindpd.com.br/'}
-      ]
+      action: () => this.newEpica(),
     },
     {
       label: 'Configuración',
@@ -101,6 +100,12 @@ export class HomeComponent implements OnInit {
   closeModal() {
     this.modalNuevoUsuario.close();
   }
+
+  editConexion() {
+    this.router.navigate(['conexiones'])
+  }
+
+  newEpica() {}
 
   registrar() {
     if (this.nuevoUsuarioForm.valid) {

@@ -35,7 +35,7 @@ export class BuscarClienteComponent {
   };
 
   readonly breadcrumb: PoBreadcrumb = {
-    items: [{ label: 'Home', action: () => this.homeLogin()}, { label: 'Hotel' }]
+    items: [{ label: 'Home', action: () => this.homeLogin()}, { label: 'Hoteles' }]
   };
 
 

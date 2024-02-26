@@ -11,6 +11,7 @@ import { PoPageBlockedUserModule, PoPageLoginModule } from '@po-ui/ng-templates'
 import { PoImageModule, PoModule, PoPageModule } from '@po-ui/ng-components';
 import { ClientesModule } from './clientes/clientes.module';
 import { HomeModule } from './home/home.module';
+import { ConexionesModule } from './conexiones/conexiones.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HomeModule } from './home/home.module';
     PoImageModule,
     ClientesModule,
     HomeModule,
+    ConexionesModule,
     PoPageModule
   ],
   providers: [],
