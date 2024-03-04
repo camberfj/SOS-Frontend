@@ -69,6 +69,13 @@ export class BuscarClienteComponent {
       filter: true,
       gridColumns: 12,
       initValue: 'Mogi das Cruzes'
+    },
+    {
+      property: 'status',
+      label: 'Status',
+      filter: false,
+      gridColumns: 12,
+      initValue: 'Mogi das Cruzes'
     }
   ];
 
@@ -115,10 +122,18 @@ export class BuscarClienteComponent {
 
   tableCustomActions: Array<PoPageDynamicTableCustomTableAction> = [
     {
-      label: 'Details',
+      label: 'Opciones:',
+    },
+    {
+      label: 'Ver detalles',
       action: this.onClickHotelDetail.bind(this),
       icon: 'po-icon-user'
-    }
+    },
+    {
+      label: 'Editar',
+      action: this.onClickHotelDetail.bind(this),
+      icon: 'po-icon-edit'
+    },
   ];
 
   constructor(private clientesService: ClientesService, private router: Router) {}
@@ -163,10 +178,6 @@ export class BuscarClienteComponent {
 
   modal() {
     this.modalNuevoCliente.open();
-  }
-
-  closeModal() {
-    this.modalNuevoCliente.close();
   }
 
 
