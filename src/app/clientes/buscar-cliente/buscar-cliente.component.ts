@@ -30,8 +30,8 @@ export class BuscarClienteComponent {
 
   readonly actions: PoPageDynamicTableActions = {
     new: () => this.modal(),
-    remove: true,
-    removeAll: true,
+    remove: true, /*En este remove esta la acción para borrar el hotel desde las opciones de 3 puntitos*/
+    removeAll: false,
   };
 
   readonly breadcrumb: PoBreadcrumb = {
@@ -128,6 +128,11 @@ export class BuscarClienteComponent {
       label: 'Ver detalles',
       action: this.onClickHotelDetail.bind(this),
       icon: 'po-icon-user'
+    },
+    {
+      label: 'Agregar contacto',
+      action: this.onClickHotelDetail.bind(this),
+      icon: 'po-icon-telephone'
     },
     {
       label: 'Editar',

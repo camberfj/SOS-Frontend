@@ -21,14 +21,10 @@ export class ConexionesComponent {
   @ViewChild('hotelDetailModal', { static: true }) hotelDetailModal: PoModalComponent;
 
   actions: Array<PoTableAction> = [
-    {
-      action: this.discount.bind(this),
-      icon: 'po-icon-finance',
-      label: 'Apply Discount',
-      disabled: this.validateDiscount.bind(this)
-    },
-    { action: this.details.bind(this), icon: 'po-icon-info', label: 'Detalles' },
-    { action: this.remove.bind(this), icon: 'po-icon po-icon-delete', label: 'Editar' }
+    { label: 'Opciones:' },
+    { action: this.details.bind(this), icon: 'po-icon-info', label: 'Ver detalles' },
+    { action: this.details.bind(this), icon: 'po-icon-edit', label: 'Editar' },
+    { action: this.remove.bind(this), icon: 'po-icon po-icon-delete', label: 'Borrar' }
   ];
 
 
@@ -67,21 +63,15 @@ export class ConexionesComponent {
 
   agregarConexion() {}
 
-  cerrarModal() {}
+  cerrarModal() {
+    this.modalNuevaConexion.close()
+  }
 
   details() {
     this.hotelDetailModal.open();
   }
 
   remove(item: { [key: string]: any }) {}
-
-  discount() {}
-
-  private validateDiscount() {}
-
-  closeModal() {
-    this.modalNuevaConexion.close()
-  }
 
 
 }
