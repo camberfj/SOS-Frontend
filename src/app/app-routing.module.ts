@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'conexiones',
     loadChildren: () => import('./conexiones/conexiones.module').then((module) => module.ConexionesModule)
+  },
+  {
+    path: 'reportes',
+    loadChildren: () => import('./reportes/reportes.module').then((module) => module.ReportesModule)
   }
 ];
 

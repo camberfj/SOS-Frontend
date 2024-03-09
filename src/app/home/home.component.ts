@@ -105,7 +105,9 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['conexiones'])
   }
 
-  newEpica() {}
+  newEpica() {
+    this.router.navigate(['reportes'])
+  }
 
   registrar() {
     if (this.nuevoUsuarioForm.valid) {

@@ -1,5 +1,10 @@
+<div class="po-font-text-bold po-md-2 po-mt-4">
+  <h2>CONEXIONES</h2>
+</div>
+<div class="po-row">
 <po-button class="po-md-1 po-mt-5" p-danger="true" p-label="Home" (p-click)="homeLogin()"></po-button>
 <po-button class="po-md-1 po-mt-5" p-kind="primary" p-label="Nuevo" (p-click)="abrirModal()"></po-button>
+</div>
 <po-table
   [p-hide-columns-manager]="false"
   p-title="Conexiones"
@@ -12,12 +17,7 @@
   [p-selectable]="true"
   [p-actions]="actions"
 >
-  <ng-template
-    let-i="rowIndex"
-  >
-  </ng-template>
 </po-table>
-
 
 <!--Modal para agregar nueva conexión-->
 <form [formGroup]="nuevaConexionForm">

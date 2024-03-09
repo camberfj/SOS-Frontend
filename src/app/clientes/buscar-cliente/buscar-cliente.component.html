@@ -1,24 +1,36 @@
-<po-page-dynamic-table
-[p-auto-router]="false"
-[p-hide-columns-manager]="false"
-[p-concat-filters]="true"
-[p-keep-filters]="true"
-p-title="Hoteles"
-[p-actions]="actions"
-[p-actions-right]="actionsRight"
-[p-table-custom-actions]="tableCustomActions"
-[p-breadcrumb]="breadcrumb"
-[p-fields]="fields"
-[p-service-api]="serviceApi"
-[p-quick-search-width]="quickSearchWidth"
-[p-hide-remove-all-disclaimer]="hideRemoveAllDisclaimer"
-[p-hide-close-disclaimers]="hideCloseDisclaimers"
+<div class="po-font-text-bold po-md-2 po-mt-4">
+  <h2>HOTELES</h2>
+</div>
+<div class="po-row">
+<po-button class="po-md-1 po-mt-5" p-danger="true" p-label="Home" (p-click)="homeLogin()"></po-button>
+<po-button class="po-md-1 po-mt-5" p-kind="primary" p-label="Nuevo" (p-click)="modal()"></po-button>
+</div>
+<po-table
+  [p-hide-columns-manager]="false"
+  [p-hide-batch-actions]="false"
+  [p-auto-collapse]="true"
+  [p-columns]="columns"
+  [p-hide-table-search]="false"
+  [p-items]="items"
+  [p-sort]="false"
+  [p-striped]="false"
+  [p-selectable]="true"
+  [p-actions]="actions"
+  [p-actions-right]="actionsRight"
 >
-</po-page-dynamic-table>
-
+  <ng-template p-table-cell-template let-column="column" let-row="row">
+    <div *ngIf="column.property === 'status'">
+      <po-select
+      class="po-md-12"
+      name="status"
+      [p-options]="statusOptions"
+    >
+    </po-select>
+  </div>
+  </ng-template>
+</po-table>
 
 <po-modal #hotelDetailModal p-title="Hotel Detail">
-  <po-dynamic-view [p-fields]="detailFields" [p-value]="detailedHotel"></po-dynamic-view>
 </po-modal>
 
 <po-modal #modalNuevoCliente p-title="Registrar Nuevo Hotel">

@@ -42,8 +42,6 @@ export class ConexionesComponent {
     label: 'Agregar'
   };
 
-  readonly detailFields: Array<PoDynamicViewField> = [{ property: 'name', gridLgColumns: 4, divider: 'Info' },];
-
   constructor(private conexionesService: ConexionesService, private router: Router) {}
 
   ngOnInit() {

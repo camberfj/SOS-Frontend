@@ -12,6 +12,7 @@ import { PoImageModule, PoModule, PoPageModule } from '@po-ui/ng-components';
 import { ClientesModule } from './clientes/clientes.module';
 import { HomeModule } from './home/home.module';
 import { ConexionesModule } from './conexiones/conexiones.module';
+import { ReportesModule } from './reportes/reportes.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ConexionesModule } from './conexiones/conexiones.module';
     ClientesModule,
     HomeModule,
     ConexionesModule,
-    PoPageModule
+    PoPageModule,
+    ReportesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
