@@ -9,33 +9,3 @@
   <po-toolbar p-title ="TOTVS HOTELERÍA LATAM" class="home-toolbar"></po-toolbar>
 </div>
 
-<!--Formulario para el nuevo usuario-->
-
-<form [formGroup]="nuevoUsuarioForm">
-<po-modal #modalNuevoUsuario p-title="Registrar Nuevo Usuario" [p-primary-action]="confirm" [p-secondary-action]="close">
-<div class="po-row">
-  <po-input class="po-md-8" formControlName="fullName" p-icon="po-icon-user" p-label="Nombre Completo"></po-input>
-</div>
-<div class="po-row">
-  <po-input class="po-md-8" formControlName="userName" p-icon="po-icon-user-add" p-label="Usuario"></po-input>
-</div>
-<div class="po-row">
-  <po-input class="po-md-8" formControlName="email" p-icon="po-icon-mail" p-label="Correo"></po-input>
-</div>
-<div class="po-row">
-  <po-input class="po-md-8" formControlName="password" p-icon="po-icon-lock" p-label="Contraseña"></po-input>
-</div>
-<po-select
-class="po-md-8"
-name="select"
-p-label="Status"
-[p-options]="[
-  { label: 'Activo', value: '1' },
-  { label: 'Inactivo', value: '2' },
-]"
->
-</po-select>
-</po-modal>
-</form>
-<!--Aquí termina el formulario para el nuevo usuario-->
-

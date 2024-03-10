@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PoModalAction, PoModalComponent, PoDynamicViewField, PoTableAction } from '@po-ui/ng-components';
-import { PoTableColumn } from '@po-ui/ng-components';
+import { PoModalAction, PoModalComponent, PoDynamicViewField, PoTableAction, PoTableColumn, PoSelectOption } from '@po-ui/ng-components';
 import { ConexionesService } from './services/conexiones.service';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './conexiones.component.html',
   styleUrls: ['./conexiones.component.scss'],
 })
-export class ConexionesComponent {
+export class ConexionesComponent implements OnInit{
   detailedHotel: any;
   nuevaConexionForm!: FormGroup;
   columns: Array<PoTableColumn>;
@@ -19,6 +18,13 @@ export class ConexionesComponent {
   @ViewChild('modalNuevaConexion', { static: true }) modalNuevaConexion: PoModalComponent;
 
   @ViewChild('hotelDetailModal', { static: true }) hotelDetailModal: PoModalComponent;
+
+  readonly statusOptions: Array<PoSelectOption> = [
+    { label: 'Activo', value: 'activo' },
+    { label: 'Observación', value: 'observación' },
+    { label: 'Suspendido', value: 'suspendido' },
+    { label: 'No cliente', value: 'no cliente' }
+  ];
 
   actions: Array<PoTableAction> = [
     { label: 'Opciones:' },

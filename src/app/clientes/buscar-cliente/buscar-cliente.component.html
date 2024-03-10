@@ -21,7 +21,7 @@
   <ng-template p-table-cell-template let-column="column" let-row="row">
     <div *ngIf="column.property === 'status'">
       <po-select
-      class="po-md-12"
+      class="po-md-9"
       name="status"
       [p-options]="statusOptions"
     >
@@ -30,10 +30,19 @@
   </ng-template>
 </po-table>
 
+<po-modal #modalNuevoCliente p-title="Registrar Nuevo Hotel">
+  <app-nuevo-cliente><po-modal-footer [p-disabled-align]="false"></po-modal-footer></app-nuevo-cliente>
+  </po-modal>
+
+<!--Modal para el detalle de hotel-->
 <po-modal #hotelDetailModal p-title="Hotel Detail">
 </po-modal>
 
-<po-modal #modalNuevoCliente p-title="Registrar Nuevo Hotel">
-<app-nuevo-cliente><po-modal-footer [p-disabled-align]="false"></po-modal-footer></app-nuevo-cliente>
+<!--Modal para Agregar Contacto-->
+<po-modal #contactoModal p-title="Agregar Contacto">
+</po-modal>
+
+<!--Modal para editar detalles-->
+<po-modal #editHotelModal p-title="Editar Hotel">
 </po-modal>
 

@@ -14,7 +14,20 @@ export class ConexionesService {
       { property: 'hotel' },
       { property: 'tipo_de_conexion', label: 'Tipo de conexión', width: '4%' },
       { property: 'datos_de_conexion', label: 'Datos de conexión' },
-      { property: 'nombre_pc', label: 'Nombre PC' }
+      { property: 'nombre_pc', label: 'Nombre PC' },
+      {
+        property: 'status',
+        type: 'label',
+        label: 'Status',
+        labels: [
+          { value: 'activo', color: 'blue', label: 'Activo', },
+          { value: 'activo', color: 'blue', label: 'Activo', },
+          { value: 'observacion', color: 'rgb(15, 82, 54)', label: 'Observación', type: PoTagType.Success },
+          { value: 'observacion', color: 'rgb(15, 82, 54)', label: 'Observación', type: PoTagType.Success },
+          { value: 'suspendido', color: '#745678', label: 'Suspendido', },
+          { value: 'no cliente', color: 'red', label: 'No cliente', }
+        ]
+      },
     ]
   }
 
@@ -26,6 +39,7 @@ export class ConexionesService {
         tipo_de_conexion: 'Teamviewer',
         nombre_pc: 'Servidor',
         datos_de_conexion: 18041822,
+        status: 'activo'
       },
       {
         idHotel: 1355,
@@ -33,6 +47,7 @@ export class ConexionesService {
         tipo_de_conexion: 'Anydesk',
         nombre_pc: 'Recepción-pc',
         datos_de_conexion: 18041821,
+        status: 'activo'
       },
       {
         idHotel: 1496,
@@ -40,6 +55,7 @@ export class ConexionesService {
         tipo_de_conexion: 'Anydesk',
         nombre_pc: 'PC-Bar',
         datos_de_conexion: 18041820,
+        status: 'observacion'
       },
       {
         idHotel: 1712,
@@ -47,6 +63,7 @@ export class ConexionesService {
         tipo_de_conexion: 'Teamviewer',
         nombre_pc: 'Servidor',
         datos_de_conexion: 18041819,
+        status: 'observacion'
       },
       {
         idHotel: 1881,
@@ -54,6 +71,7 @@ export class ConexionesService {
         tipo_de_conexion: 'Anydesk',
         nombre_pc: 'DESKTOP-JI2Z9G3',
         datos_de_conexion: 18041825,
+        status: 'suspendido'
       },
       {
         idHotel: 1551,
@@ -61,6 +79,7 @@ export class ConexionesService {
         tipo_de_conexion: 'Teamviewer',
         nombre_pc: 'Servidor',
         datos_de_conexion: 18041888,
+        status: 'no cliente'
       }
     ]
   }

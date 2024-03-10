@@ -12,8 +12,9 @@ export class BuscarClienteComponent {
   columns: Array<PoTableColumn>;
   items: Array<any>;
   @ViewChild('modalNuevoCliente', { static: true }) modalNuevoCliente: PoModalComponent;
-
   @ViewChild('hotelDetailModal', { static: true }) hotelDetailModal!: PoModalComponent;
+  @ViewChild('contactoModal', { static: true }) contactoModal!: PoModalComponent;
+  @ViewChild('editHotelModal', { static: true }) editHotelModal!: PoModalComponent;
 
 
   readonly statusOptions: Array<PoSelectOption> = [
@@ -26,13 +27,12 @@ export class BuscarClienteComponent {
   actions: Array<PoTableAction> = [
     { label: 'Opciones:' },
     { action: this.details.bind(this), icon: 'po-icon-info', label: 'Ver detalles' },
-    { action: this.details.bind(this), icon: 'po-icon-telephone', label: 'Agregar contacto' },
-    { action: this.details.bind(this), icon: 'po-icon-edit', label: 'Editar' },
+    { action: this.contacto.bind(this), icon: 'po-icon-telephone', label: 'Agregar contacto' },
+    { action: this.editar.bind(this), icon: 'po-icon-edit', label: 'Editar' },
     { action: this.remove.bind(this), icon: 'po-icon po-icon-delete', label: 'Borrar' }
   ];
 
   actionsRight = false;
-  hideRemoveAllDisclaimer = false;
 
   constructor(private clientesService: ClientesService, private router: Router) {}
 
@@ -51,6 +51,14 @@ export class BuscarClienteComponent {
 
   details() {
     this.hotelDetailModal.open();
+  }
+
+  contacto(){
+    this.contactoModal.open();
+  }
+
+  editar() {
+    this.editHotelModal.open();
   }
 
   remove(item: { [key: string]: any }) {}

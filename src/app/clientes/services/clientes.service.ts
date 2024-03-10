@@ -25,14 +25,13 @@ export class ClientesService {
     return [
       { property: 'idHotel', type: 'number', width: '4%'},
       { property: 'hotel' },
-      { property: 'tipo_de_conexion', label: 'Tipo de conexión', },
+      { property: 'tipo_de_conexion', label: 'Tipo de conexión', width: '4%'},
       { property: 'datos_de_conexion', label: 'Datos de conexión' },
-      { property: 'nombre_pc', label: 'Nombre PC' },
+      { property: 'nombre_pc', label: 'Nombre PC', width: '8%' },
       {
         property: 'status',
         type: 'cellTemplate',
         label: 'Status',
-        width: '8%',
         labels: [
           { value: 'activo', color: 'blue', label: 'Activo', },
           { value: 'activo', color: 'blue', label: 'Activo', },

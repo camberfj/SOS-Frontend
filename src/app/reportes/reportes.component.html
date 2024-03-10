@@ -1,1 +1,47 @@
-<p>reportes works!</p>
+<div class="po-font-text-bold po-md-2 po-mt-4">
+  <h2>ÉPICAS</h2>
+</div>
+<div class="po-row">
+<po-button class="po-md-1 po-mt-5" p-danger="true" p-label="Home" (p-click)="homeLogin()"></po-button>
+<po-button class="po-md-1 po-mt-5" p-kind="primary" p-label="Nuevo" (p-click)="abrirModal()"></po-button>
+</div>
+<po-table
+  [p-hide-columns-manager]="false"
+  p-title="Conexiones"
+  [p-auto-collapse]="true"
+  [p-columns]="columns"
+  [p-hide-table-search]="false"
+  [p-items]="items"
+  [p-sort]="false"
+  [p-striped]="false"
+  [p-selectable]="true"
+  [p-actions]="actions"
+>
+</po-table>
+
+<!--Modal para agregar nueva Épicas-->
+<form [formGroup]="nuevaEpicaForm">
+  <po-modal
+  #modalNuevaEpica
+  p-title="Agregar Nueva Épicas"
+  [p-primary-action]="confirm"
+  [p-secondary-action]="close"
+  >
+  <div class="modal-form">
+    <po-select class="po-md-12 po-textarea" p-label="Seleccionar Hotel"
+    [p-options]="[{ label: 'Amerian Reconquista', value: '1' }, { label: 'Asturias', value: '2' }, { label: 'Loi Iguazu', value: '3' }, { label: 'Nogaro', value: '4' }]">
+    </po-select>
+  </div>
+  <div class="modal-form">
+    <po-textarea class="po-md-12 po-textarea" p-label="Escriba aquí su nueva épica"> </po-textarea>
+  </div>
+</po-modal>
+</form>
+
+<!--Modal para mostrar los detalles de épicas-->
+<po-modal #hotelDetailModal p-title="Épicas Detail">
+</po-modal>
+
+<!--Modal para editar detalles-->
+<po-modal #editDetailModal p-title="Editar Detalles">
+</po-modal>
