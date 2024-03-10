@@ -1,0 +1,52 @@
+<div class="po-font-text-bold po-md-2 po-mt-4">
+  <h2>USUARIOS</h2>
+</div>
+<div class="po-row">
+<po-button class="po-md-1 po-mt-5" p-danger="true" p-label="Home" (p-click)="homeLogin()"></po-button>
+<po-button class="po-md-1 po-mt-5" p-kind="primary" p-label="Nuevo" (p-click)="abrirModal()"></po-button>
+</div>
+<po-table
+  [p-hide-columns-manager]="false"
+  p-title="Conexiones"
+  [p-auto-collapse]="true"
+  [p-columns]="columns"
+  [p-hide-table-search]="false"
+  [p-items]="items"
+  [p-sort]="false"
+  [p-striped]="false"
+  [p-selectable]="true"
+  [p-actions]="actions"
+>
+</po-table>
+
+<!--Formulario para el nuevo usuario-->
+<form [formGroup]="nuevoUsuarioForm">
+  <po-modal #modalNuevoUsuario p-title="Registrar Nuevo Usuario" [p-primary-action]="confirm" [p-secondary-action]="close">
+    <div class="modal-form">
+      <po-input class="po-md-8" formControlName="fullName" p-icon="po-icon-user" p-label="Nombre Completo"></po-input>
+  </div>
+    <div class="modal-form">
+      <po-input class="po-md-8" formControlName="userName" p-icon="po-icon-user-add" p-label="Usuario"></po-input>
+  </div>
+    <div class="modal-form">
+      <po-input class="po-md-8" formControlName="email" p-icon="po-icon-mail" p-label="Correo"></po-input>
+  </div>
+    <div class="modal-form">
+      <po-input class="po-md-8" formControlName="password" p-icon="po-icon-lock" p-label="Contraseña"></po-input>
+  </div>
+    <div class="modal-form">
+      <po-select class="po-md-8" p-label="Status"
+      [p-options]="[ { label: 'Activo', value: '1' }, { label: 'Inactivo', value: '2' }, ]"
+      >
+      </po-select>
+    </div>
+  </po-modal>
+</form>
+
+  <!--Modal para mostrar los detalles de épicas-->
+<po-modal #usuarioDetailModal p-title="Usuario Detail">
+</po-modal>
+
+<!--Modal para editar detalles-->
+<po-modal #editUsuarioModal p-title="Editar Usuario">
+</po-modal>
