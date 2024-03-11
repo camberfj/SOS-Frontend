@@ -12,9 +12,9 @@ export class ReportesService {
     return [
       { property: 'idHotel', type: 'number', width: '4%'},
       { property: 'hotel' },
-      { property: 'tipo_de_conexion', label: 'Tipo de conexión', width: '4%' },
-      { property: 'datos_de_conexion', label: 'Datos de conexión' },
-      { property: 'nombre_pc', label: 'Nombre PC' },
+      { property: 'usuario', label: 'Usuario', },
+      { property: 'fecha', label: 'Fecha' },
+      { property: 'nombre_pc', label: 'Nombre PC', },
       {
         property: 'status',
         type: 'label',
@@ -36,49 +36,49 @@ export class ReportesService {
       {
         idHotel: 1200,
         hotel: 'Amerian Reconquista',
-        tipo_de_conexion: 'Teamviewer',
+        usuario: 'Natalia Seinturia',
+        fecha: '12/03/2024',
         nombre_pc: 'Servidor',
-        datos_de_conexion: 18041822,
         status: 'activo'
       },
       {
         idHotel: 1355,
         hotel: 'Loi Iguazu',
-        tipo_de_conexion: 'Anydesk',
+        usuario: 'Sheila Altmark',
+        fecha: '11/03/2024',
         nombre_pc: 'Recepción-pc',
-        datos_de_conexion: 18041821,
         status: 'activo'
       },
       {
         idHotel: 1496,
         hotel: 'Asturias',
-        tipo_de_conexion: 'Anydesk',
+        usuario: 'Matias Fanelli',
+        fecha: '10/03/2024',
         nombre_pc: 'PC-Bar',
-        datos_de_conexion: 18041820,
         status: 'observacion'
       },
       {
         idHotel: 1712,
         hotel: 'Amerian Villa Del Dique',
-        tipo_de_conexion: 'Teamviewer',
+        usuario: 'Pablo Cabrera',
+        fecha: '09/03/2024',
         nombre_pc: 'Servidor',
-        datos_de_conexion: 18041819,
         status: 'observacion'
       },
       {
         idHotel: 1881,
         hotel: 'Loi Recoleta',
-        tipo_de_conexion: 'Anydesk',
+        usuario: 'Natalia Seinturia',
+        fecha: '08/03/2024',
         nombre_pc: 'DESKTOP-JI2Z9G3',
-        datos_de_conexion: 18041825,
         status: 'suspendido'
       },
       {
         idHotel: 1551,
         hotel: 'Nogaro',
-        tipo_de_conexion: 'Teamviewer',
+        usuario: 'Pablo Cabrera',
+        fecha: '07/03/2024',
         nombre_pc: 'Servidor',
-        datos_de_conexion: 18041888,
         status: 'no cliente'
       }
     ]

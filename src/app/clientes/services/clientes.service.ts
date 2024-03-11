@@ -25,9 +25,10 @@ export class ClientesService {
     return [
       { property: 'idHotel', type: 'number', width: '4%'},
       { property: 'hotel' },
-      { property: 'tipo_de_conexion', label: 'Tipo de conexión', width: '4%'},
-      { property: 'datos_de_conexion', label: 'Datos de conexión' },
-      { property: 'nombre_pc', label: 'Nombre PC', width: '8%' },
+      { property: 'pais', label: 'País',},
+      { property: 'ciudad', label: 'Ciudad',},
+      { property: 'datos_de_licencia', label: 'Datos de licencia', },
+      { property: 'nombre_pc', label: 'Nombre PC', },
       {
         property: 'status',
         type: 'cellTemplate',
@@ -49,49 +50,55 @@ export class ClientesService {
       {
         idHotel: 1200,
         hotel: 'Amerian Reconquista',
-        tipo_de_conexion: 'Teamviewer',
+        pais: 'Argentina',
+        ciudad: 'CABA',
         nombre_pc: 'Servidor',
-        datos_de_conexion: 18041822,
+        datos_de_licencia: 18041822,
         status:'activo'
       },
       {
         idHotel: 1355,
         hotel: 'Loi Iguazu',
-        tipo_de_conexion: 'Anydesk',
+        pais: 'Argentina',
+        ciudad: 'Iguazu',
         nombre_pc: 'Recepción-pc',
-        datos_de_conexion: 18041821,
+        datos_de_licencia: 18041821,
         status:'activo'
       },
       {
         idHotel: 1496,
         hotel: 'Asturias',
-        tipo_de_conexion: 'Anydesk',
+        pais: 'Argentina',
+        ciudad: 'Buenos Aires',
         nombre_pc: 'PC-Bar',
-        datos_de_conexion: 18041820,
+        datos_de_licencia: 18041820,
         status:'observacion'
       },
       {
         idHotel: 1712,
         hotel: 'Amerian Villa Del Dique',
-        tipo_de_conexion: 'Teamviewer',
+        pais: 'Argentina',
+        ciudad: 'Villa Del Dique',
         nombre_pc: 'Servidor',
-        datos_de_conexion: 18041819,
+        datos_de_licencia: 18041819,
         status:'observacion'
       },
       {
         idHotel: 1881,
-        hotel: 'Loi Recoleta',
-        tipo_de_conexion: 'Anydesk',
+        hotel: 'Camino Real Santa Cruz',
+        pais: 'Bolivia',
+        ciudad: 'Santa Cruz',
         nombre_pc: 'DESKTOP-JI2Z9G3',
-        datos_de_conexion: 18041825,
+        datos_de_licencia: 18041825,
         status:'suspendido'
       },
       {
         idHotel: 1551,
-        hotel: 'Nogaro',
-        tipo_de_conexion: 'Teamviewer',
+        hotel: 'Time Rugendas',
+        pais: 'Chile',
+        ciudad: 'Santiago De Chile',
         nombre_pc: 'Servidor',
-        datos_de_conexion: 18041888,
+        datos_de_licencia: 18041888,
         status:'no cliente'
       }
     ]

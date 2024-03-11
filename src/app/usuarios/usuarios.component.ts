@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PoModalAction, PoModalComponent, PoTableAction, PoTableColumn } from '@po-ui/ng-components';
+import { PoModalAction, PoModalComponent, PoSelectOption, PoTableAction, PoTableColumn } from '@po-ui/ng-components';
 import { NuevoUsuarioService } from './servicios/nuevo-usuario.service';
 import { Router } from '@angular/router';
 import { NuevoUsuario } from './nuevo-usuario';
@@ -18,6 +18,13 @@ export class UsuariosComponent implements OnInit{
   @ViewChild('modalNuevoUsuario', { static: true }) modalNuevoUsuario: PoModalComponent;
   @ViewChild('usuarioDetailModal', { static: true }) usuarioDetailModal: PoModalComponent;
   @ViewChild('editUsuarioModal', { static: true }) editUsuarioModal: PoModalComponent;
+
+  readonly statusOptions: Array<PoSelectOption> = [
+    { label: 'Activo', value: 'activo' },
+    { label: 'Observación', value: 'observación' },
+    { label: 'Suspendido', value: 'suspendido' },
+    { label: 'No cliente', value: 'no cliente' }
+  ];
 
 
   actions: Array<PoTableAction> = [

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { NuevoUsuario } from '../nuevo-usuario';
-import { PoTableColumn } from '@po-ui/ng-components';
+import { PoTableColumn, PoTagType } from '@po-ui/ng-components';
 
 const API = environment.apiUrl;
 
@@ -22,57 +22,77 @@ export class NuevoUsuarioService {
 
   getColumns(): Array<PoTableColumn> {
     return [
-      { property: 'idHotel', type: 'number', width: '4%'},
-      { property: 'hotel' },
-      { property: 'tipo_de_conexion', label: 'Tipo de conexión', width: '4%' },
-      { property: 'datos_de_conexion', label: 'Datos de conexión' },
-      { property: 'nombre_pc', label: 'Nombre PC' }
+      { property: 'idUsuario', label: 'Idusuario', type: 'number', width: '4%'},
+      { property: 'nombre', label: 'Nombre' },
+      { property: 'correo', label: 'Correo Electrónico', },
+      { property: 'telefono', label: 'Telefono Personal' },
+      { property: 'telefonoEmergencia', label: 'Telefono De Emergencia' },
+      {
+        property: 'status',
+        type: 'label',
+        label: 'Status',
+        labels: [
+          { value: 'activo', color: 'blue', label: 'Activo', },
+          { value: 'activo', color: 'blue', label: 'Activo', },
+          { value: 'observacion', color: 'rgb(15, 82, 54)', label: 'Observación', type: PoTagType.Success },
+          { value: 'observacion', color: 'rgb(15, 82, 54)', label: 'Observación', type: PoTagType.Success },
+          { value: 'suspendido', color: '#745678', label: 'Suspendido', },
+          { value: 'no cliente', color: 'red', label: 'No cliente', }
+        ]
+      },
     ]
   }
 
   getItems(): Array<any> {
     return [
       {
-        idHotel: 1200,
-        hotel: 'Amerian Reconquista',
-        tipo_de_conexion: 'Teamviewer',
-        nombre_pc: 'Servidor',
-        datos_de_conexion: 18041822,
+        idUsuario: 1200,
+        nombre: 'Gonzalo Biedma',
+        correo: 'gonzalo.biedma@totvs.com',
+        telefono: 18041822,
+        telefonoEmergencia: 114567323,
+        status: 'activo'
       },
       {
-        idHotel: 1355,
-        hotel: 'Loi Iguazu',
-        tipo_de_conexion: 'Anydesk',
-        nombre_pc: 'Recepción-pc',
-        datos_de_conexion: 18041821,
+        idUsuario: 1355,
+        nombre: 'Juan Manzur',
+        correo: 'juan.manzur@totvs.com',
+        telefono: 18041821,
+        telefonoEmergencia: 114567434,
+        status: 'activo'
       },
       {
-        idHotel: 1496,
-        hotel: 'Asturias',
-        tipo_de_conexion: 'Anydesk',
-        nombre_pc: 'PC-Bar',
-        datos_de_conexion: 18041820,
+        idUsuario: 1496,
+        nombre: 'Natalia Seintura',
+        correo: 'natalia.seintura@totvs.com',
+        telefono: 18041820,
+        telefonoEmergencia: 116578930,
+        status: 'activo'
+
       },
       {
-        idHotel: 1712,
-        hotel: 'Amerian Villa Del Dique',
-        tipo_de_conexion: 'Teamviewer',
-        nombre_pc: 'Servidor',
-        datos_de_conexion: 18041819,
+        idUsuario: 1712,
+        nombre: 'Pedro Cabrera',
+        correo: 'pedro.cabrera@totvs.com',
+        telefono: 18041819,
+        telefonoEmergencia: 114569025,
+        status: 'activo'
       },
       {
-        idHotel: 1881,
-        hotel: 'Loi Recoleta',
-        tipo_de_conexion: 'Anydesk',
-        nombre_pc: 'DESKTOP-JI2Z9G3',
-        datos_de_conexion: 18041825,
+        idUsuario: 1881,
+        nombre: 'Sheila Altmark',
+        correo: 'sheila.altmark@totvs.com',
+        telefono: 18041825,
+        telefonoEmergencia: 110489362,
+        status: 'activo'
       },
       {
-        idHotel: 1551,
-        hotel: 'Nogaro',
-        tipo_de_conexion: 'Teamviewer',
-        nombre_pc: 'Servidor',
-        datos_de_conexion: 18041888,
+        idUsuario: 1551,
+        nombre: 'Matias Fanelli',
+        correo: 'matias.fanelli@totvs.com',
+        telefono: 18041888,
+        telefonoEmergencia: 114902389,
+        status: 'activo'
       }
     ]
   }
