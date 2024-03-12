@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import { PoTableColumn, PoTagType } from '@po-ui/ng-components';
+import { Comentario, Comentarios } from '../comentario';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+const API = environment.apiUrl
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReportesService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getColumns(): Array<PoTableColumn> {
     return [
@@ -29,6 +35,16 @@ export class ReportesService {
         ]
       },
     ]
+  }
+
+  agregarEpica(id: number, commentText: string): Observable<Comentario>{
+    return this.httpClient.post<Comentario>(`${API}/photos/${id}/Comments`, {
+      commentText
+    })
+  }
+
+  buscarComentarios(id: number): Observable<Comentarios>{
+    return this.httpClient.get<Comentarios>(`${API}/photos/${id}/comments`);
   }
 
   getItems(): Array<any> {

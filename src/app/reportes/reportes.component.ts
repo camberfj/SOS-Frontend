@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ReportesService } from './servicios/reportes.service';
 import { Router } from '@angular/router';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { PoModalAction, PoModalComponent, PoSelectOption, PoTableAction, PoTableColumn } from '@po-ui/ng-components';
+import { Observable, switchMap, tap } from 'rxjs';
+import { Comentarios } from './comentario';
 
 @Component({
   selector: 'app-reportes',
@@ -10,6 +12,9 @@ import { PoModalAction, PoModalComponent, PoSelectOption, PoTableAction, PoTable
   styleUrls: ['./reportes.component.scss']
 })
 export class ReportesComponent implements OnInit{
+  @Input() id!: number;
+  comentarios$!: Observable<Comentarios>
+  comentarioForm !: FormGroup
   detailedHotel: any;
   nuevaEpicaForm!: FormGroup;
   columns: Array<PoTableColumn>;
@@ -47,9 +52,10 @@ export class ReportesComponent implements OnInit{
     label: 'Agregar'
   };
 
-  constructor(private reportesService: ReportesService, private router: Router) {}
+  constructor(private reportesService: ReportesService, private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
+    this.comentarios$ = this.reportesService.buscarComentarios(this.id)
     this.columns = this.reportesService.getColumns();
     this.items = this.reportesService.getItems();
   }
@@ -68,8 +74,6 @@ export class ReportesComponent implements OnInit{
     this.modalNuevaEpica.close()
   }
 
-  agregarEpica() {}
-
   details() {
     this.hotelDetailModal.open();
   }
@@ -79,5 +83,17 @@ export class ReportesComponent implements OnInit{
   }
 
   remove(item: { [key: string]: any }) {}
+
+  agregarEpica(): void{
+    const comentario = this.comentarioForm.get('comentario')?.value ?? '';
+    this.comentarios$ = this.reportesService.agregarEpica(this.id, comentario).pipe(
+      switchMap( () => {
+       return this.reportesService.buscarComentarios(this.id);
+      }),
+      tap( () => {
+        this.comentarioForm.reset();
+      })
+    );
+  }
 
 }
