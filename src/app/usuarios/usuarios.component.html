@@ -10,7 +10,6 @@
     class="po-md-12"
     name="Po Search"
     [(ngModel)]="searchQuery"
-    [p-items]="items"
     [p-filter-keys]="filterKeys"
     (p-filtered-items-change)="filtered($event)"
   ></po-search>
@@ -28,15 +27,19 @@
   [p-selectable]="true"
   [p-actions]="actions"
 >
-<div class="po-row" *ngFor="let people of peopleFiltered">
-  <po-info class="po-md-4" p-label="Name" [p-value]="people.name"> </po-info>
-
-  <po-info class="po-md-4" p-label="Nickname" [p-value]="people.nickname"> </po-info>
-
-  <po-info class="po-md-4" p-label="Email" [p-value]="people.email"> </po-info>
-</div>
 </po-table>
 </div>
+
+<!--<div *ngIf="items | async as nuevoUsuarios">
+    <ul class="list-unstyled comentarios-list">
+      <li *ngFor="let nuevoUsuario of nuevoUsuarios">
+        <p class="text-dark fw-bold">{{ nuevoUsuario.userName }}</p>
+        <em>{{ nuevoUsuario.fullName}} </em>
+        <p class="break-word mb-2">{{ nuevoUsuario.email }}</p>
+      </li>
+    </ul>
+  </div>--> <!--Esto es para llamar los usuarios desde backend-->
+
 
 <!--Formulario para el nuevo usuario-->
 <form [formGroup]="nuevoUsuarioForm">

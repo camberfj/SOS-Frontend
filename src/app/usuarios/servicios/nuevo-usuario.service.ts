@@ -57,6 +57,10 @@ export class NuevoUsuarioService {
     return this.httpClient.get<NuevoUsuarios>(`${this.url}?name=${searchQuery}`);
   }
 
+  /*getItems(id: number): Observable<NuevoUsuarios> {
+    return this.httpClient.get<NuevoUsuarios>(`${API}/photos/${id}/comments`);
+  }*/
+
   /*getDatos(): Array<any> { Función para agarrar los usuarios de backend
     return [
       {
@@ -69,7 +73,7 @@ export class NuevoUsuarioService {
     ]
   }*/
 
- getItems(): Array<any> {
+  getItems(): Array<any> {
     return [
       {
         idUsuario: 1200,

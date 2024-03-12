@@ -15,10 +15,10 @@ export class UsuariosComponent implements OnInit{
   @Input() id!: number;
   nuevoUsuarioForm!: FormGroup;
   columns: Array<PoTableColumn>;
-  items: Array<any>;
+  items: Array<NuevoUsuarios>;
   searchQuery: string;
-  filterKeys: Array<string> = ['name', 'nickname', 'email'];
-  peopleFiltered: Array<any> = [];
+  filterKeys: Array<string> = ['fullName', 'userName', 'email'];
+  peopleFiltered: NuevoUsuario[] = [];
   @ViewChild('modalNuevoUsuario', { static: true }) modalNuevoUsuario: PoModalComponent;
   @ViewChild('usuarioDetailModal', { static: true }) usuarioDetailModal: PoModalComponent;
   @ViewChild('editUsuarioModal', { static: true }) editUsuarioModal: PoModalComponent;
@@ -58,6 +58,7 @@ export class UsuariosComponent implements OnInit{
   ngOnInit(): void {
     this.columns = this.nuevoUsuarioService.getColumns();
     this.items = this.nuevoUsuarioService.getItems();
+    /*this.items = this.nuevoUsuarioService.getItems(this.id);*/
     /*this.datos = this.nuevoUsuarioService.getDatos(this.id);*/
     this.nuevoUsuarioForm = this.formBuilder.group({
       fullName: ['', [ Validators.required, Validators.minLength(4)]],
