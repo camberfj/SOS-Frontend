@@ -4,3 +4,5 @@ export interface NuevoUsuario {
   fullName: string;
   password: string;
 }
+
+export type NuevoUsuarios = Array<NuevoUsuario>

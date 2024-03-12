@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PoModalAction, PoModalComponent, PoSelectOption, PoTableAction, PoTableColumn } from '@po-ui/ng-components';
 import { NuevoUsuarioService } from './servicios/nuevo-usuario.service';
 import { Router } from '@angular/router';
-import { NuevoUsuario } from './nuevo-usuario';
+import { NuevoUsuario, NuevoUsuarios } from './nuevo-usuario';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-usuarios',
@@ -11,10 +12,13 @@ import { NuevoUsuario } from './nuevo-usuario';
   styleUrls: ['./usuarios.component.scss']
 })
 export class UsuariosComponent implements OnInit{
-  detailedHotel: any;
+  @Input() id!: number;
   nuevoUsuarioForm!: FormGroup;
   columns: Array<PoTableColumn>;
   items: Array<any>;
+  searchQuery: string;
+  filterKeys: Array<string> = ['name', 'nickname', 'email'];
+  peopleFiltered: Array<any> = [];
   @ViewChild('modalNuevoUsuario', { static: true }) modalNuevoUsuario: PoModalComponent;
   @ViewChild('usuarioDetailModal', { static: true }) usuarioDetailModal: PoModalComponent;
   @ViewChild('editUsuarioModal', { static: true }) editUsuarioModal: PoModalComponent;
@@ -54,6 +58,7 @@ export class UsuariosComponent implements OnInit{
   ngOnInit(): void {
     this.columns = this.nuevoUsuarioService.getColumns();
     this.items = this.nuevoUsuarioService.getItems();
+    /*this.datos = this.nuevoUsuarioService.getDatos(this.id);*/
     this.nuevoUsuarioForm = this.formBuilder.group({
       fullName: ['', [ Validators.required, Validators.minLength(4)]],
       userName: [''],
@@ -62,6 +67,22 @@ export class UsuariosComponent implements OnInit{
     },{
       validators: [],
     })
+  }
+
+  filtered(event: Array<any>) {
+    this.peopleFiltered = event;
+    if (event.length === 4) {
+      this.peopleFiltered = [];
+    } else {
+      try {
+      } catch (error) {
+        return undefined;
+      }
+    }
+  }
+
+  onSearch() {
+    this.nuevoUsuarioService.getDatos(this.searchQuery).subscribe();
   }
 
   registrar() {

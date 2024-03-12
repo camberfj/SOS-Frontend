@@ -1,23 +1,42 @@
-<div class="po-font-text-bold po-md-2 po-mt-4">
+<div class="po-font-text-bold po-md-2 po-mt-2">
   <h2>USUARIOS</h2>
 </div>
 <div class="po-row">
 <po-button class="po-md-1 po-mt-5" p-danger="true" p-label="Home" (p-click)="homeLogin()"></po-button>
 <po-button class="po-md-1 po-mt-5" p-kind="primary" p-label="Nuevo" (p-click)="abrirModal()"></po-button>
 </div>
+<div style="position: absolute; top: 80px; right: 50px;">
+  <po-search
+    class="po-md-12"
+    name="Po Search"
+    [(ngModel)]="searchQuery"
+    [p-items]="items"
+    [p-filter-keys]="filterKeys"
+    (p-filtered-items-change)="filtered($event)"
+  ></po-search>
+</div>
+<div class="po-mt-5">
 <po-table
-  [p-hide-columns-manager]="false"
+  [p-hide-columns-manager]="true"
   p-title="Conexiones"
   [p-auto-collapse]="true"
   [p-columns]="columns"
-  [p-hide-table-search]="false"
+  [p-hide-table-search]="true"
   [p-items]="items"
   [p-sort]="false"
-  [p-striped]="false"
+  [p-striped]="true"
   [p-selectable]="true"
   [p-actions]="actions"
 >
+<div class="po-row" *ngFor="let people of peopleFiltered">
+  <po-info class="po-md-4" p-label="Name" [p-value]="people.name"> </po-info>
+
+  <po-info class="po-md-4" p-label="Nickname" [p-value]="people.nickname"> </po-info>
+
+  <po-info class="po-md-4" p-label="Email" [p-value]="people.email"> </po-info>
+</div>
 </po-table>
+</div>
 
 <!--Formulario para el nuevo usuario-->
 <form [formGroup]="nuevoUsuarioForm">

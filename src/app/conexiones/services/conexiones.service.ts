@@ -14,15 +14,13 @@ export class ConexionesService {
       { property: 'hotel' },
       { property: 'tipo_de_conexion', label: 'Tipo de conexión', },
       { property: 'datos_de_conexion', label: 'Datos de conexión' },
-      { property: 'nombre_pc', label: 'Nombre PC' },
+      { property: 'terminal', label: 'Terminal' },
       {
         property: 'status',
         type: 'label',
         label: 'Status',
         labels: [
           { value: 'activo', color: 'blue', label: 'Activo', },
-          { value: 'activo', color: 'blue', label: 'Activo', },
-          { value: 'observacion', color: 'rgb(15, 82, 54)', label: 'Observación', type: PoTagType.Success },
           { value: 'observacion', color: 'rgb(15, 82, 54)', label: 'Observación', type: PoTagType.Success },
           { value: 'suspendido', color: '#745678', label: 'Suspendido', },
           { value: 'no cliente', color: 'red', label: 'No cliente', }
@@ -37,7 +35,7 @@ export class ConexionesService {
         idHotel: 1200,
         hotel: 'Amerian Reconquista',
         tipo_de_conexion: 'Centraliza',
-        nombre_pc: 'Servidor',
+        terminal: 'Servidor',
         datos_de_conexion: 18041822,
         status: 'activo'
       },
@@ -45,7 +43,7 @@ export class ConexionesService {
         idHotel: 1355,
         hotel: 'Loi Iguazu',
         tipo_de_conexion: 'Channel',
-        nombre_pc: 'Recepción-pc',
+        terminal: 'Recepción-pc',
         datos_de_conexion: 18041821,
         status: 'activo'
       },
@@ -53,7 +51,7 @@ export class ConexionesService {
         idHotel: 1496,
         hotel: 'Asturias',
         tipo_de_conexion: 'Servicios BT',
-        nombre_pc: 'PC-Bar',
+        terminal: 'PC-Bar',
         datos_de_conexion: 18041820,
         status: 'observacion'
       },
@@ -61,7 +59,7 @@ export class ConexionesService {
         idHotel: 1712,
         hotel: 'Amerian Villa Del Dique',
         tipo_de_conexion: 'Amerian Franquicia',
-        nombre_pc: 'Servidor',
+        terminal: 'Servidor',
         datos_de_conexion: 18041819,
         status: 'observacion'
       },
@@ -69,7 +67,7 @@ export class ConexionesService {
         idHotel: 1881,
         hotel: 'Loi Recoleta',
         tipo_de_conexion: 'Facturación Electronica',
-        nombre_pc: 'DESKTOP-JI2Z9G3',
+        terminal: 'DESKTOP-JI2Z9G3',
         datos_de_conexion: 18041825,
         status: 'suspendido'
       },
@@ -77,7 +75,7 @@ export class ConexionesService {
         idHotel: 1551,
         hotel: 'Nogaro',
         tipo_de_conexion: 'Comanda Electronica',
-        nombre_pc: 'Servidor',
+        terminal: 'Servidor',
         datos_de_conexion: 18041888,
         status: 'no cliente'
       },
@@ -85,7 +83,7 @@ export class ConexionesService {
         idHotel: 1551,
         hotel: 'Time Select',
         tipo_de_conexion: 'Comanda Electronica',
-        nombre_pc: 'Servidor',
+        terminal: 'Servidor',
         datos_de_conexion: 18041888,
         status: 'no cliente'
       }
