@@ -9,6 +9,7 @@ import { PoImageModule, PoMenuModule, PoModalModule, PoModule, PoToolbarModule }
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './headers/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardModule } from '../dashboard/dashboard.module';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     NgFor,
-    PoModalModule
+    PoModalModule,
+    DashboardModule
   ]
 })
 export class HomeModule { }
