@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PoModalAction, PoModalComponent, PoDynamicViewField, PoTableAction, PoTableColumn, PoSelectOption } from '@po-ui/ng-components';
+import { PoModalAction, PoModalComponent, PoTableAction, PoTableColumn, PoSelectOption } from '@po-ui/ng-components';
 import { ConexionesService } from './services/conexiones.service';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,13 +11,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./conexiones.component.scss'],
 })
 export class ConexionesComponent implements OnInit{
-  detailedHotel: any;
   nuevaConexionForm!: FormGroup;
   columns: Array<PoTableColumn>;
   items: Array<any>;
   @ViewChild('modalNuevaConexion', { static: true }) modalNuevaConexion: PoModalComponent;
 
   @ViewChild('hotelDetailModal', { static: true }) hotelDetailModal: PoModalComponent;
+
+
 
   readonly statusOptions: Array<PoSelectOption> = [
     { label: 'Activo', value: 'activo' },
@@ -54,8 +55,6 @@ export class ConexionesComponent implements OnInit{
     this.columns = this.conexionesService.getColumns();
     this.items = this.conexionesService.getItems();
   }
-
-  isUndelivered() {}
 
   homeLogin() {
     this.router.navigate(['home'])

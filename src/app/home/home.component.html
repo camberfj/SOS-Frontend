@@ -1,7 +1,11 @@
 <router-outlet></router-outlet>
 <app-dashboard></app-dashboard>
 <div  class="po-wrapper">
-  <po-menu [p-menus]="menus" p-service='https://po-sample-api.fly.dev/v1/menus'>
+  <po-menu
+  [p-collapsed]="true"
+  [p-menus]="menus"
+  p-service="string | PoMenuFilter"
+  >
     <div  *p-menu-header-template  class = "po-p-2 po-font-title muestra-menu-header-text-color">
       <p>Hola,</p>
       <p *ngIf="user$ |async as user ">{{ user.name }}</p>
@@ -9,4 +13,3 @@
   </po-menu>
   <po-toolbar p-title ="TOTVS HOTELERÍA LATAM" class="home-toolbar"></po-toolbar>
 </div>
-

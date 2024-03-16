@@ -9,6 +9,13 @@ import { FormGroup, } from '@angular/forms';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  styles: [
+    `
+      .sample-menu-header-text-color {
+        color: #9da7a9;
+      }
+    `
+  ]
 })
 export class HomeComponent implements OnInit {
   nuevoUsuarioForm!: FormGroup;
@@ -18,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   menus: Array<PoMenuItem> = [
     {
-      label: 'Nuevo usuario',
+      label: 'Usuarios',
       icon: 'po-icon-user-add',
       shortLabel: 'Register',
       action: () => this.usuarios(),

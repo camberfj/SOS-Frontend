@@ -2,8 +2,8 @@
   <h2>ÉPICAS</h2>
 </div>
 <div class="po-row">
-<po-button class="po-md-1 po-mt-5" p-danger="true" p-label="Home" (p-click)="homeLogin()"></po-button>
-<po-button class="po-md-1 po-mt-5" p-kind="primary" p-label="Nuevo" (p-click)="abrirModal()"></po-button>
+  <po-button class="po-md-1 po-mt-5" p-danger="true" p-label="Home" (p-click)="homeLogin()"></po-button>
+  <po-button class="po-md-1 po-mt-5" p-kind="primary" p-label="Nuevo" (p-click)="abrirModal()"></po-button>
 </div>
 <po-table
   [p-hide-columns-manager]="false"
@@ -19,7 +19,7 @@
 >
 </po-table>
 <!--Modal para agregar nueva Épicas-->
-<form [formGroup]="nuevaEpicaForm" [formGroup]="comentarioForm">
+<form [formGroup]="comentarioForm">
   <po-modal
   #modalNuevaEpica
   p-title="Agregar Nueva Épicas"
@@ -32,7 +32,7 @@
     </po-select>
   </div>
   <div class="modal-form">
-    <po-textarea class="po-md-12 po-textarea" p-label="Escriba aquí su nueva épica" mensaje="Máximo 50 caracteres"> </po-textarea>
+    <po-textarea class="po-md-12 po-textarea" p-label="Escriba aquí su nuevo comentario"></po-textarea>
   </div>
 </po-modal>
 </form>
@@ -51,7 +51,7 @@
   </div>
   <ng-template #noComments>
     <div class="text-center">
-      <p>Aun no hay comentarios.</p>
+      <p>Aun no hay épicas.</p>
       <i class="fa fa-commenting-o"></i>
     </div>
   </ng-template>

@@ -1,22 +1,22 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ReportesService } from './servicios/reportes.service';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PoModalAction, PoModalComponent, PoSelectOption, PoTableAction, PoTableColumn } from '@po-ui/ng-components';
-import { Observable, switchMap, tap } from 'rxjs';
+import { Observable, switchMap, take, tap } from 'rxjs';
 import { Comentarios } from './comentario';
+import { UserService } from '../auth/user/user.service';
 
 @Component({
   selector: 'app-reportes',
   templateUrl: './reportes.component.html',
   styleUrls: ['./reportes.component.scss']
 })
-export class ReportesComponent implements OnInit{
+export class ReportesComponent implements OnInit {
   @Input() id!: number;
   comentarios$!: Observable<Comentarios>
-  comentarioForm !: FormGroup
+  comentarioForm!: FormGroup;
   detailedHotel: any;
-  nuevaEpicaForm!: FormGroup;
   columns: Array<PoTableColumn>;
   items: Array<any>;
   @ViewChild('modalNuevaEpica', { static: true }) modalNuevaEpica: PoModalComponent;
@@ -47,15 +47,17 @@ export class ReportesComponent implements OnInit{
 
   confirm: PoModalAction = {
     action: () => {
-      this.agregarEpica();
+      this.agregarComentario();
     },
     label: 'Agregar'
   };
 
-  constructor(private reportesService: ReportesService, private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private userService: UserService, private reportesService: ReportesService, private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.comentarios$ = this.reportesService.buscarComentarios(this.id)
+    this.comentarioForm = this.formBuilder.group({
+      comentario: ['', Validators.maxLength(50)],});
     this.columns = this.reportesService.getColumns();
     this.items = this.reportesService.getItems();
   }
@@ -84,9 +86,9 @@ export class ReportesComponent implements OnInit{
 
   remove(item: { [key: string]: any }) {}
 
-  agregarEpica(): void{
+  agregarComentario(): void{
     const comentario = this.comentarioForm.get('comentario')?.value ?? '';
-    this.comentarios$ = this.reportesService.agregarEpica(this.id, comentario).pipe(
+    this.comentarios$ = this.reportesService.agregarComentario(this.id, comentario).pipe(
       switchMap( () => {
        return this.reportesService.buscarComentarios(this.id);
       }),

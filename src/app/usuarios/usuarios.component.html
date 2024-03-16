@@ -17,7 +17,6 @@
 <div class="po-mt-5">
 <po-table
   [p-hide-columns-manager]="true"
-  p-title="Conexiones"
   [p-auto-collapse]="true"
   [p-columns]="columns"
   [p-hide-table-search]="true"
@@ -33,9 +32,9 @@
 <!--<div *ngIf="items | async as nuevoUsuarios">
     <ul class="list-unstyled comentarios-list">
       <li *ngFor="let nuevoUsuario of nuevoUsuarios">
-        <p class="text-dark fw-bold">{{ nuevoUsuario.userName }}</p>
-        <em>{{ nuevoUsuario.fullName}} </em>
-        <p class="break-word mb-2">{{ nuevoUsuario.email }}</p>
+        <p class="po-md-4">{{ nuevoUsuario.userName }}</p>
+        <em>{{ nuevoUsuario.fullName}}</em>
+        <p class="po-md-4">{{ nuevoUsuario.email }}</p>
       </li>
     </ul>
   </div>--> <!--Esto es para llamar los usuarios desde backend-->
@@ -57,10 +56,6 @@
       <po-input class="po-md-8" formControlName="password" p-icon="po-icon-lock" p-label="Contraseña"></po-input>
   </div>
     <div class="modal-form">
-      <po-select class="po-md-8" p-label="Status"
-      [p-options]="[ { label: 'Activo', value: '1' }, { label: 'Inactivo', value: '2' }, ]"
-      >
-      </po-select>
     </div>
   </po-modal>
 </form>

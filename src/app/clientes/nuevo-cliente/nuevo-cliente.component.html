@@ -6,22 +6,18 @@
     <po-input class="po-md-8" formControlName="userName" p-icon="po-icon-company" p-label="Razón Social"></po-input>
   </div>
   <div class="modal-form">
-    <po-input class="po-md-8" formControlName="fullName" p-icon="po-icon-warehouse" p-label="IdHotel"></po-input>
-  </div>
-  <div class="modal-form">
     <po-input class="po-md-8" formControlName="email" p-icon="po-icon-mail" p-label="Correo"></po-input>
   </div>
-  <div class="modal-form">
-    <po-input class="po-md-8" formControlName="password" p-icon="po-icon-telephone" p-label="Contacto"></po-input>
-  </div>
+  <div>
+    <po-modal-footer class="modal-footer">
+      <po-button class="po-mt-5 po-md-3" p-kind="primary" p-icon="po-icon-ok" p-label="Agregar" (p-click)="agregarCliente()"></po-button>
+      <po-button class="po-mt-5 po-md-3" p-danger="true" p-icon="po-icon-close" p-label="Cancelar" (p-click)="close()"></po-button>
+    </po-modal-footer>
+    </div>
   <!--Hay que sacar el select de esta pantalla<div class="modal-form">
   <po-select class="po-md-8" p-label="Status"
     [p-options]="[{ label: 'Activo', value: '1' }, { label: 'Suspendido', value: '2' }, { label: 'Bloqueado', value: '3' }]">
 </po-select>
 </div>-->
-<po-modal-footer class="modal-footer">
-  <po-button class="po-mt-5 po-md-3" p-kind="primary" p-icon="po-icon-ok" p-label="Agregar" (p-click)="agregarCliente()"></po-button>
-  <po-button class="po-mt-5 po-md-3" p-danger="true" p-icon="po-icon-close" p-label="Cancelar" (p-click)="close()"></po-button>
-</po-modal-footer>
 </form>
 

@@ -2,9 +2,10 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PoModalAction, PoModalComponent, PoSelectOption, PoTableAction, PoTableColumn } from '@po-ui/ng-components';
 import { NuevoUsuarioService } from './servicios/nuevo-usuario.service';
-import { Router } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { NuevoUsuario, NuevoUsuarios } from './nuevo-usuario';
-import { Observable } from 'rxjs';
+import { Observable, switchMap, take } from 'rxjs';
+import { UserService } from '../auth/user/user.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -53,12 +54,12 @@ export class UsuariosComponent implements OnInit{
     label: 'Agregar'
   };
 
-  constructor(private nuevoUsuarioService: NuevoUsuarioService, private router: Router, private formBuilder: FormBuilder ) {}
+  constructor(private userService: UserService, private nuevoUsuarioService: NuevoUsuarioService, private router: Router, private formBuilder: FormBuilder ) {}
 
   ngOnInit(): void {
     this.columns = this.nuevoUsuarioService.getColumns();
     this.items = this.nuevoUsuarioService.getItems();
-    /*this.items = this.nuevoUsuarioService.getItems(this.id);*/
+    /*this.nuevoUsuarioService.getItems();*/
     /*this.datos = this.nuevoUsuarioService.getDatos(this.id);*/
     this.nuevoUsuarioForm = this.formBuilder.group({
       fullName: ['', [ Validators.required, Validators.minLength(4)]],
@@ -70,7 +71,7 @@ export class UsuariosComponent implements OnInit{
     })
   }
 
-  filtered(event: Array<any>) {
+  filtered(event: Array<any>) { /*Esto es para hacer la función de auto completado*/
     this.peopleFiltered = event;
     if (event.length === 4) {
       this.peopleFiltered = [];
@@ -90,7 +91,7 @@ export class UsuariosComponent implements OnInit{
     if (this.nuevoUsuarioForm.valid) {
       const nuevousuario = this.nuevoUsuarioForm.getRawValue() as NuevoUsuario;
       this.nuevoUsuarioService.registrarUsuario(nuevousuario).subscribe({
-        complete: () => this.router.navigate(['']),
+        complete: () => this.nuevoUsuarioForm.reset(),
         error: () => alert('No fue posible hacer el registro'),
       });
     } else {

@@ -37,11 +37,23 @@ export class ReportesService {
     ]
   }
 
-  agregarEpica(id: number, commentText: string): Observable<Comentario>{
+  agregarComentario(id: number, commentText: string): Observable<Comentario> {
+    return this.httpClient.post<Comentario>(`${API}/photos/${id}/comments`, {
+      commentText
+    });
+}
+
+  /*agregarComentario(commentText: string): Observable<Comentario>{
+    return this.httpClient.post<Comentario>(`${API}/comments`, {
+      commentText
+    })
+  }*/
+
+  /*agregarEpica(id: number, commentText: string): Observable<Comentario>{
     return this.httpClient.post<Comentario>(`${API}/photos/${id}/Comments`, {
       commentText
     })
-  }
+  }*/
 
   buscarComentarios(id: number): Observable<Comentarios>{
     return this.httpClient.get<Comentarios>(`${API}/photos/${id}/comments`);

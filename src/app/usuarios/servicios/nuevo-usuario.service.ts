@@ -12,13 +12,13 @@ const API = environment.apiUrl;
 })
 export class NuevoUsuarioService {
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   url = `${API}/user`
 
 
   registrarUsuario(nuevoUsuario: NuevoUsuario) {
-    return this.httpClient.post(`${this.url}/signup`, nuevoUsuario)
+    return this.http.post(`${this.url}/signup`, nuevoUsuario)
   }
 
   getColumns(): Array<PoTableColumn> {
@@ -53,8 +53,16 @@ export class NuevoUsuarioService {
     ]
   }
 
+  /*getItems(): Observable<NuevoUsuarios> {
+    return this.http.get<NuevoUsuarios>(`${this.url}/signup`,)
+  }*/
+
+  /*getItems(usuario: number): Observable<NuevoUsuarios> {
+    return this.httpClient.get<NuevoUsuarios>(`${API}/${usuario}/photos`);
+  }*/
+
   getDatos(searchQuery: string): Observable<NuevoUsuarios>{
-    return this.httpClient.get<NuevoUsuarios>(`${this.url}?name=${searchQuery}`);
+    return this.http.get<NuevoUsuarios>(`${this.url}?name=${searchQuery}`);
   }
 
   /*getItems(id: number): Observable<NuevoUsuarios> {

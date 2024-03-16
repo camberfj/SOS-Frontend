@@ -31,7 +31,7 @@ export class NuevoClienteComponent implements OnInit {
     if (this.nuevoHotelForm.valid) {
       const nuevoCliente = this.nuevoHotelForm.getRawValue() as NuevoCliente;
       this.clientesService.registrarCliente(nuevoCliente).subscribe({
-        complete: () => this.close(),
+        complete: () => this.nuevoHotelForm.reset(),
         error: () => alert('No fue posible hacer el registro'),
       });
     }else {
