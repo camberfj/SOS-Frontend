@@ -22,10 +22,26 @@
   [p-hide-table-search]="true"
   [p-items]="items"
   [p-sort]="false"
-  [p-striped]="true"
-  [p-selectable]="true"
+  [p-striped]="false"
+  [p-selectable]="false"
   [p-actions]="actions"
 >
+<ng-template p-table-cell-template let-column="column" let-row="row">
+  <div *ngIf="column.property === 'permisos'">
+    <po-select
+    class="po-md-6"
+    name="select"
+    [p-options]="statusOptions"
+    >
+    </po-select>
+  </div>
+  <div *ngIf="column.property === 'status'">
+  <po-switch
+  name="switch"
+  >
+  </po-switch>
+</div>
+</ng-template>
 </po-table>
 </div>
 

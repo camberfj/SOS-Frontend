@@ -35,8 +35,6 @@ export class ClientesService {
         label: 'Status',
         labels: [
           { value: 'activo', color: 'blue', label: 'Activo', },
-          { value: 'activo', color: 'blue', label: 'Activo', },
-          { value: 'observacion', color: 'rgb(15, 82, 54)', label: 'Observación', type: PoTagType.Success },
           { value: 'observacion', color: 'rgb(15, 82, 54)', label: 'Observación', type: PoTagType.Success },
           { value: 'suspendido', color: '#745678', label: 'Suspendido', },
           { value: 'no cliente', color: 'red', label: 'No cliente', }

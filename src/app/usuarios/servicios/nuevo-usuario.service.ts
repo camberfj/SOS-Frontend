@@ -23,32 +23,13 @@ export class NuevoUsuarioService {
 
   getColumns(): Array<PoTableColumn> {
     return [
-      { property: 'idUsuario', label: 'Idusuario', type: 'number', width: '4%'},
       { property: 'nombre', label: 'Nombre' },
       { property: 'correo', label: 'Correo Electrónico', },
-      { property: 'telefono', label: 'Telefono Personal' },
-      { property: 'telefonoEmergencia', label: 'Telefono De Emergencia' },
-      {
-        property: 'permisos',
-        type: 'label',
-        label: 'Permisos de usuario',
-        labels: [
-          { value: 'gerencia', color: 'blue', label: 'Gerencia', },
-          { value: 'administrativo', color: 'rgb(15, 82, 54)', label: 'Administrativo', type: PoTagType.Success },
-          { value: 'suspendido', color: '#745678', label: 'Suspendido', },
-          { value: 'no cliente', color: 'red', label: 'No cliente', }
-        ]
-      },
+      { property: 'permisos', type: 'cellTemplate', label: 'Permisos de usuario',},
       {
         property: 'status',
-        type: 'label',
+        type: 'cellTemplate',
         label: 'Status',
-        labels: [
-          { value: 'activo', color: 'blue', label: 'Activo', },
-          { value: 'observacion', color: 'rgb(15, 82, 54)', label: 'Observación', type: PoTagType.Success },
-          { value: 'suspendido', color: '#745678', label: 'Suspendido', },
-          { value: 'no cliente', color: 'red', label: 'No cliente', }
-        ]
       },
     ]
   }

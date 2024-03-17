@@ -17,6 +17,12 @@
   [p-selectable]="true"
   [p-actions]="actions"
 >
+<ng-template p-table-cell-template let-column="column" let-row="row">
+<div *ngIf="column.property === 'epicas'">
+  <po-container class="po-lg-12">
+  </po-container>
+</div>
+</ng-template>
 </po-table>
 <!--Modal para agregar nueva Épicas-->
 <form [formGroup]="comentarioForm">

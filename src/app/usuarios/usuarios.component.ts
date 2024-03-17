@@ -13,6 +13,8 @@ import { UserService } from '../auth/user/user.service';
   styleUrls: ['./usuarios.component.scss']
 })
 export class UsuariosComponent implements OnInit{
+  labelOff: string;
+  labelOn: string;
   @Input() id!: number;
   nuevoUsuarioForm!: FormGroup;
   columns: Array<PoTableColumn>;
@@ -25,10 +27,9 @@ export class UsuariosComponent implements OnInit{
   @ViewChild('editUsuarioModal', { static: true }) editUsuarioModal: PoModalComponent;
 
   readonly statusOptions: Array<PoSelectOption> = [
-    { label: 'Activo', value: 'activo' },
-    { label: 'Observación', value: 'observación' },
-    { label: 'Suspendido', value: 'suspendido' },
-    { label: 'No cliente', value: 'no cliente' }
+    { label: 'Administrativo', value: 'administrativo' },
+    { label: 'Acceso Total', value: 'acceso_total' },
+    { label: 'Gerencia', value: 'gerencia' },
   ];
 
 
