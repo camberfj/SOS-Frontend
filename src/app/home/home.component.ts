@@ -43,13 +43,13 @@ export class HomeComponent implements OnInit {
       action: () => this.editConexion(),
     },
     {
-      label: 'Épicas',
+      label: 'Reportes',
       icon: 'po-icon-news',
       shortLabel: 'Links',
       action: () => this.newEpica(),
     },
     {
-      label: 'Configuración',
+      label: 'Módulos',
       action: this.printMenuAction.bind(this),
       icon: 'po-icon-settings',
       shortLabel: 'Timekeeping',
