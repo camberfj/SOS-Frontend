@@ -17,9 +17,9 @@ export class ReportesService {
   getColumns(): Array<PoTableColumn> {
     return [
       { property: 'idHotel', type: 'number', width: '4%'},
-      { property: 'hotel', width: '4%' },
-      { property: 'usuario', label: 'Usuario', width: '4%' },
-      { property: 'fecha', label: 'Fecha' },
+      { property: 'hotel', /*width: '4%'*/  },
+      { property: 'usuario', label: 'Usuario', /*width: '4%'*/  },
+      { property: 'fecha', label: 'Fecha', /*width: '4%'*/ },
       { property: 'epicas', type:'cellTemplate', label: 'Épicas' },
     ]
   }
