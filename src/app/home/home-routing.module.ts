@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { PoModule } from '@po-ui/ng-components';
 import { HeaderComponent } from './headers/header.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
         component: HeaderComponent
       }
     ]
+  },
+  {
+    path: '',
+    component: DashboardComponent
   }
 ];
 

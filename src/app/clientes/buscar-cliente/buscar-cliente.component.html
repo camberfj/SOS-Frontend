@@ -1,0 +1,54 @@
+<div class="po-font-text-bold po-md-2 po-mt-4">
+  <h2>HOTELES</h2>
+</div>
+<div class="po-row">
+<po-button class="po-md-1 po-mt-5" p-danger="true" p-label="Home" (p-click)="homeLogin()"></po-button>
+<po-button class="po-md-1 po-mt-5" p-kind="primary" p-label="Nuevo" (p-click)="modal()"></po-button>
+</div>
+<po-table
+  [p-hide-columns-manager]="false"
+  [p-hide-batch-actions]="false"
+  [p-auto-collapse]="true"
+  [p-columns]="columns"
+  [p-hide-table-search]="false"
+  [p-items]="items"
+  [p-sort]="false"
+  [p-striped]="false"
+  [p-selectable]="true"
+  [p-actions]="actions"
+  [p-actions-right]="actionsRight"
+>
+  <ng-template p-table-cell-template let-column="column" let-row="row">
+    <div *ngIf="column.property === 'status'">
+      <po-select
+      class="po-md-12"
+      name="status"
+      [p-options]="statusOptions"
+    >
+    </po-select>
+  </div>
+  </ng-template>
+</po-table>
+
+<po-modal #modalNuevoCliente p-title="Registrar Nuevo Hotel">
+  <app-nuevo-cliente><po-modal-footer [p-disabled-align]="false"></po-modal-footer></app-nuevo-cliente>
+  </po-modal>
+
+<!--Modal para el detalle de hotel-->
+<po-modal #hotelDetailModal p-title="Hotel Detail">
+</po-modal>
+
+<!--Modal para Agregar Contacto-->
+<po-modal #contactoModal p-title="Agregar Contacto">
+  <div class="modal-form">
+    <po-input class="po-md-8" formControlName="contacto" p-icon="po-icon-telephone" p-label="Contacto"></po-input>
+  </div>
+</po-modal>
+
+<!--Modal para editar detalles-->
+<po-modal #editHotelModal p-title="Editar Hotel">
+  <div class="modal-form">
+    <po-input class="po-md-8" formControlName="IdHotel" p-icon="po-icon-warehouse" p-label="IdHotel"></po-input>
+  </div>
+</po-modal>
+

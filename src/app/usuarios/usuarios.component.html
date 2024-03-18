@@ -1,0 +1,85 @@
+<div class="po-font-text-bold po-md-2 po-mt-2">
+  <h2>USUARIOS</h2>
+</div>
+<div class="po-row">
+<po-button class="po-md-1 po-mt-5" p-danger="true" p-label="Home" (p-click)="homeLogin()"></po-button>
+<po-button class="po-md-1 po-mt-5" p-kind="primary" p-label="Nuevo" (p-click)="abrirModal()"></po-button>
+</div>
+<div style="position: absolute; top: 80px; right: 50px;">
+  <po-search
+    class="po-md-12"
+    name="Po Search"
+    [(ngModel)]="searchQuery"
+    [p-filter-keys]="filterKeys"
+    (p-filtered-items-change)="filtered($event)"
+  ></po-search>
+</div>
+<div class="po-mt-5">
+<po-table
+  [p-hide-columns-manager]="true"
+  [p-auto-collapse]="true"
+  [p-columns]="columns"
+  [p-hide-table-search]="true"
+  [p-items]="items"
+  [p-sort]="false"
+  [p-striped]="false"
+  [p-selectable]="false"
+  [p-actions]="actions"
+>
+<ng-template p-table-cell-template let-column="column" let-row="row">
+  <div *ngIf="column.property === 'permisos'">
+    <po-select
+    class="po-md-12"
+    name="select"
+    [p-options]="statusOptions"
+    >
+    </po-select>
+  </div>
+  <div *ngIf="column.property === 'status'">
+  <po-switch
+  name="switch"
+  >
+  </po-switch>
+</div>
+</ng-template>
+</po-table>
+</div>
+
+<!--<div *ngIf="items | async as nuevoUsuarios">
+    <ul class="list-unstyled comentarios-list">
+      <li *ngFor="let nuevoUsuario of nuevoUsuarios">
+        <p class="po-md-4">{{ nuevoUsuario.userName }}</p>
+        <em>{{ nuevoUsuario.fullName}}</em>
+        <p class="po-md-4">{{ nuevoUsuario.email }}</p>
+      </li>
+    </ul>
+  </div>--> <!--Esto es para llamar los usuarios desde backend-->
+
+
+<!--Formulario para el nuevo usuario-->
+<form [formGroup]="nuevoUsuarioForm">
+  <po-modal #modalNuevoUsuario p-title="Registrar Nuevo Usuario" [p-primary-action]="confirm" [p-secondary-action]="close">
+    <div class="modal-form">
+      <po-input class="po-md-8" formControlName="fullName" p-icon="po-icon-user" p-label="Nombre Completo"></po-input>
+  </div>
+    <div class="modal-form">
+      <po-input class="po-md-8" formControlName="userName" p-icon="po-icon-user-add" p-label="Usuario"></po-input>
+  </div>
+    <div class="modal-form">
+      <po-input class="po-md-8" formControlName="email" p-icon="po-icon-mail" p-label="Correo"></po-input>
+  </div>
+    <div class="modal-form">
+      <po-input class="po-md-8" formControlName="password" p-icon="po-icon-lock" p-label="Contraseña"></po-input>
+  </div>
+    <div class="modal-form">
+    </div>
+  </po-modal>
+</form>
+
+  <!--Modal para mostrar los detalles de épicas-->
+<po-modal #usuarioDetailModal p-title="Usuario Detail">
+</po-modal>
+
+<!--Modal para editar detalles-->
+<po-modal #editUsuarioModal p-title="Editar Usuario">
+</po-modal>

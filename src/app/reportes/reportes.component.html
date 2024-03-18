@@ -1,0 +1,70 @@
+<div class="po-font-text-bold po-md-2 po-mt-4">
+  <h2>ÉPICAS</h2>
+</div>
+<div class="po-row">
+  <po-button class="po-md-1 po-mt-5" p-danger="true" p-label="Home" (p-click)="homeLogin()"></po-button>
+  <po-button class="po-md-1 po-mt-5" p-kind="primary" p-label="Nuevo" (p-click)="abrirModal()"></po-button>
+</div>
+<po-table
+  [p-hide-columns-manager]="false"
+  p-title="Conexiones"
+  [p-auto-collapse]="true"
+  [p-columns]="columns"
+  [p-hide-table-search]="false"
+  [p-items]="items"
+  [p-sort]="false"
+  [p-striped]="false"
+  [p-selectable]="true"
+  [p-actions]="actions"
+>
+<ng-template p-table-cell-template let-column="column" let-row="row">
+<div *ngIf="column.property === 'epicas'">
+  <po-container class="po-lg-12">
+    <div class="po-text-center">Se migro de la version 6 a la 12</div>
+  </po-container>
+</div>
+</ng-template>
+</po-table>
+<!--Modal para agregar nueva Épicas-->
+<form [formGroup]="comentarioForm">
+  <po-modal
+  #modalNuevaEpica
+  p-title="Agregar Nueva Épicas"
+  [p-primary-action]="confirm"
+  [p-secondary-action]="close"
+  >
+  <div class="modal-form">
+    <po-select class="po-md-12 po-textarea" p-label="Seleccionar Hotel"
+    [p-options]="[{ label: 'Amerian Reconquista', value: '1' }, { label: 'Asturias', value: '2' }, { label: 'Loi Iguazu', value: '3' }, { label: 'Nogaro', value: '4' }]">
+    </po-select>
+  </div>
+  <div class="modal-form">
+    <po-textarea class="po-md-12 po-textarea" p-label="Escriba aquí su nuevo comentario"></po-textarea>
+  </div>
+</po-modal>
+</form>
+
+<!--Modal para mostrar los detalles de épicas-->
+<po-modal #hotelDetailModal p-title="Épicas Detail">
+  <div *ngIf="comentarios$ | async as comentarios">
+  <div *ngIf="!!comentarios.length; else noComments">
+    <ul class="list-unstyled comentarios-list">
+      <li *ngFor="let comentario of comentarios">
+        <p class="text-dark fw-bold">{{ comentario.userName }}</p>
+        <em>{{ comentario.date | date: "dd-MM-yyyy HH:mm" }} </em>
+        <p class="break-word mb-2">{{ comentario.text }}</p>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noComments>
+    <div class="text-center">
+      <p>Aun no hay épicas.</p>
+      <i class="fa fa-commenting-o"></i>
+    </div>
+  </ng-template>
+</div>
+</po-modal>
+
+<!--Modal para editar detalles-->
+<po-modal #editDetailModal p-title="Editar Detalles">
+</po-modal>

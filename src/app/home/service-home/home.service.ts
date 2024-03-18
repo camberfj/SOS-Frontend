@@ -1,19 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PoMenuFilter, PoMenuItemFiltered, PoToolbarAction } from '@po-ui/ng-components';
-import { Observable, map } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+const API = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
 })
-export class HomeService implements PoMenuFilter {
-  private apiUrl: string = 'https://po-sample-api.fly.dev/v1/menus';
+export class HomeService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
-  getFilteredData(search: string): Observable<Array<PoMenuItemFiltered>> {
-    const params = { search };
+  url = `${API}/user`
 
-    return this.http.get(this.apiUrl, { params }).pipe(map((response: any) => response.items));
-  }
 }

@@ -40,7 +40,17 @@ export class HeaderComponent {
   ];
 
 
-  constructor(private poDialog: PoDialogService, private poNotification: PoNotificationService, private homeService: HomeService, private userService: UserService, private router: Router) {}
+  constructor(
+    private poDialog:
+    PoDialogService,
+    private poNotification:
+    PoNotificationService,
+    private homeService:
+    HomeService,
+    private userService:
+    UserService,
+    private router:
+    Router) {}
 
   getNotificationNumber() {
     return this.notificationActions.filter(not => not.type === 'danger').length;
